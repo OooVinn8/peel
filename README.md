@@ -76,4 +76,4 @@ Hanssen - Front End & UI / UX Designer
 Kevin Alera - UI / UX Designer
 
 
-© 2025 MakanDulu. All rights reserved.
+© 2025 MakanDulu. All rights reserved

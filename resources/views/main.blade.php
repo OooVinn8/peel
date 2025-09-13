@@ -95,11 +95,13 @@
             </h2>
 
             <div class="flex items-center space-x-2 bg-white text-blue-600 px-3 py-1 rounded-lg font-bold">
-              <span id="jam">10 : 00 : 00</span>
+              <span id="jam">12 : 00 : 00</span>
             </div>
 
           </div>
         </div>
+
+        <script src="{{ asset('js/timer.js') }}"></script>
 
         <div class="px-8 py-0.5">
           <div class="grid md:grid-cols-3 gap-6">
@@ -214,62 +216,54 @@
     <div class="p-8 bg-white">
       <div class="relative">
         <div class="slides grid grid-cols-1 md:grid-cols-3 gap-6">
-          <x-card-large-best
-            image="{{ asset('image_menu/ayam/ayam_kremes.jpg') }}"
-            top="1"
-            title="Ayam Kremes"
-            category="Ayam"
+          <x-card-large-pilihan
+            image="{{ asset('image_menu/cemilan/kentang_goreng.png') }}"
+            title="Kentang Goreng"
+            category="Cemilan"
             price="15.000" />
 
-          <x-card-large-best
-            image="{{ asset('image_menu/ayam/ayam_bumbu_rendang.png') }}"
-            top="2"
-            title="Ayam Bumbu Rendang"
-            category="Ayam"
-            price="20.000" />
+          <x-card-large-pilihan
+            image="{{ asset('image_menu/dessert/es_shanghai.png') }}"
+            title="Es Shanghai"
+            category="Dessert"
+            price="10.000" />
 
-          <x-card-large-best
-            image="{{ asset('image_menu/minuman/matcha_latte.jpg') }}"
-            top="3"
-            title="Matcha Latte"
-            category="Minuman"
-            price="16.000" />
+          <x-card-large-pilihan
+            image="{{ asset('image_menu/ayam/ayam_pop.jpg') }}"
+            title="Ayam Pop"
+            category="Ayam"
+            price="24.000" />
         </div>
 
         <div class="slides hidden grid grid-cols-1 md:grid-cols-3 gap-6">
-          <x-card-large-best
+          <x-card-large-pilihan
             image="{{ asset('image_menu/minuman/americano.jpg') }}"
-            top="4"
             title="Americano"
             category="Minuman"
             price="14.000" />
 
-          <x-card-large-best
+          <x-card-large-pilihan
             image="{{ asset('image_menu/seafood/cumi_goreng.jpg') }}"
-            top="5"
             title="Cumi Goreng Tepung"
             category="Seafood"
             price="22.000" />
 
-          <x-card-large-best
+          <x-card-large-pilihan
             image="{{ asset('image_menu/dessert/pudding_coklat.jpg') }}"
-            top="6"
             title="Pudding Coklat"
             category="Dessert"
             price="10.000" />
         </div>
 
         <div class="slides hidden grid grid-cols-1 md:grid-cols-3 gap-6">
-          <x-card-large-best
+          <x-card-large-pilihan
               image="{{ asset('image_menu/dessert/es_campur.jpg') }}"
-              top="9"
               title="Es Campur"
               category="Dessert"
               price="12.000" />
 
-          <x-card-large-best
+          <x-card-large-pilihan
               image="{{ asset('image_menu/ayam/soto_ayam.jpg') }}"
-              top="10"
               title="Soto Ayam"
               category="Ayam"
               price="16.000" />

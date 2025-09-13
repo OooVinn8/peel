@@ -11,6 +11,6 @@
 
 <body class="bg-gray-100 font-sans">
   @include('layouts.navbar')
-
+<h1>halaman menu ygy</h1>
 </body>
 </html>
