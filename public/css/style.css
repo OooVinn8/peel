@@ -1,0 +1,15 @@
+.social-icon {
+  width: 64px;
+  height: 64px;
+  cursor: grab;
+  transition: transform 0.3s ease;
+}
+
+.social-icon:active {
+  transform: scale(1.2);
+  cursor: grabbing;
+}
+
+.drop-zone {
+  transition: all 0.4s ease;
+}
