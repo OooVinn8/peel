@@ -13,4 +13,4 @@
             <span class="text-yellow-500 font-bold">{{ $price }}</span>
         </div>
     </div>
-</div>  
+</div>

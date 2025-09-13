@@ -54,12 +54,12 @@
 
   <div class="bg-blue-600 text-white py-12">
     <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-12 gap-12">
-      
+
       <div class="md:col-span-5 pr-6 md:border-r md:border-white/30">
         <h3 class="text-lg font-bold mb-4">TENTANG KAMI</h3>
         <p class="text-sm text-white/80 leading-relaxed">
-          Bagi kami di <span class="font-bold">MakanDulu</span>, setiap sajian bukan sekadar makanan, 
-          tapi pelukan hangat yang bisa dirasakan lewat rasa. Kami ingin setiap tamu yang datang, baik 
+          Bagi kami di <span class="font-bold">MakanDulu</span>, setiap sajian bukan sekadar makanan,
+          tapi pelukan hangat yang bisa dirasakan lewat rasa. Kami ingin setiap tamu yang datang, baik
           secara langsung maupun lewat layar, bisa merasakan rumah di setiap suapan.
         </p>
         <p class="text-yellow-300 italic mt-4">– Founder MakanDulu</p>
