@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUserRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -29,89 +31,53 @@ class UserController extends Controller
         return view('profile', compact('user'));
     }
 
-    public function register(Request $fill)
+    public function register(StoreUserRequest $request)
     {
-        $username = $fill->username;
-        $email = $fill->email;
-        $phone = $fill->phone;
-        $password = $fill->password;
-        $confirmpassword = $fill->confirmpassword;
-
-        if (empty($username) || empty($email) || empty($phone) || empty($password) || empty($confirmpassword)) {
-            return back()->with('error', 'Semua inputan wajib diisi!');
-        }   
-
-        $cekEmail = DB::table('users')->where('email', $email)->first();
-        if ($cekEmail) {
-            return back()->with('error', 'Email sudah digunakan!');
-        }
-
-        $cekPhone = DB::table('users')->where('phone', $phone)->first();
-        if ($cekPhone) {
-            return back()->with('error', 'Nomor HP sudah digunakan!');
-        }
-
-        if (strlen($password) < 8) {
-            return back()->with('error', 'Password harus minimal 8 karakter!');
-        }
-
-        if ($password !== $confirmpassword) {
-            return back()->with('error', 'Password dan konfirmasi password tidak sama!');
-        }
-
-        DB::table('users')->insert([
-            'username' => $username,
-            'email' => $email,
-            'phone' => $phone,
-            'password' => Hash::make($password),
-            'created_at' => now()
+        User::create([
+            'username' => $request->username,
+            'email'    => $request->email,
+            'phone'    => $request->phone,
+            'password' => Hash::make($request->password),
         ]);
 
         return redirect('/login')->with('success', 'Registrasi berhasil! Silakan login.');
     }
 
-
-    public function login(Request $fill)
+    public function login(Request $request)
     {
-        $email = $fill->email;
-        $password = $fill->password;
+        $email = $request->email;
+        $password = $request->password;
 
         if (empty($email) || empty($password)) {
             return back()->with('error', 'Email dan password wajib diisi!');
         }
 
         $cekUser = DB::table('users')->where('email', $email)->first();
-        if (!$cekUser) {
+        if (!$cekUser || !Hash::check($password, $cekUser->password)) {
             return back()->with('error', 'Email tidak ditemukan atau password salah!');
         }
 
-        if (!Hash::check($password, $cekUser->password)) {
-            return back()->with('error', 'Email tidak ditemukan atau password salah!');
-        }
-
-        // simpan session user
         session([
-            'user_id' => $cekUser->id,
+            'user_id'  => $cekUser->id,
             'username' => $cekUser->username,
-            'email' => $cekUser->email,
+            'email'    => $cekUser->email,
         ]);
 
-        // set lifetime session jadi 1 jam
-        config(['session.lifetime' => 60]);
+        config(['session.lifetime' => 120]);
 
         return redirect('/main');
     }
 
     public function logout(Request $request)
     {
-        $request->session()->flush(); // hapus semua data session
-        return redirect('/'); // balikin ke home
+        $request->session()->flush();
+        return redirect('/');
     }
 
     public function main()
     {
         if (!session()->has('user_id')) {
-            return redirect('/main');
+            return redirect('/login');
         }
 
         return view('main');

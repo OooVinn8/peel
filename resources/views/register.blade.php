@@ -5,7 +5,6 @@
 @section('content')
 <div class="min-h-screen flex items-center justify-center bg-gray-100">
 
-
     <div class="w-full md:w-[1200px] md:h-[650px] bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row">
 
         <div class="w-full md:w-[35%] flex flex-col justify-center px-6 md:px-10 py-8 md:py-12">
@@ -13,7 +12,7 @@
                 <div class="flex justify-center mb-8">
                     <img src="{{ asset('images/logo.png') }}" class="w-32 md:w-40">
                 </div>
-
+                
                 @if(session('error'))
                 <div class="bg-red-100 text-red-600 p-3 rounded-lg mb-4 text-sm">
                     {{ session('error') }}
@@ -29,22 +28,32 @@
                     @csrf
                     <div>
                         <label class="block text-sm font-medium mb-1 text-gray-700">Username</label>
-                        <input type="text" name="username"
+                        <input type="text" name="username" value="{{ old('username') }}"
                             class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                             placeholder="Masukkan username" autocomplete="off">
+                        @error('username')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
+
                     <div>
                         <label class="block text-sm font-medium mb-1 text-gray-700">Email</label>
-                        <input type="email" name="email"
+                        <input type="email" name="email" value="{{ old('email') }}"
                             class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                             placeholder="Masukkan email" autocomplete="off">
+                        @error('email')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div>
                         <label class="block text-sm font-medium mb-1 text-gray-700">Phone Number</label>
-                        <input type="text" name="phone"
+                        <input type="text" name="phone" value="{{ old('phone') }}"
                             class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                             placeholder="Masukkan nomor HP" autocomplete="off">
+                        @error('phone')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -53,10 +62,13 @@
                             <input type="password" name="password"
                                 class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                                 placeholder="Masukkan password" autocomplete="off">
+                            @error('password')
+                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div>
                             <label class="block text-sm font-medium mb-1 text-gray-700">Konfirmasi Password</label>
-                            <input type="password" name="confirmpassword"
+                            <input type="password" name="password_confirmation"
                                 class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                                 placeholder="Masukkan ulang password" autocomplete="off">
                         </div>
@@ -64,6 +76,7 @@
 
                     <x-buttonLoginRegister label="REGISTER" />
                 </form>
+
                 <p class="mt-6 text-sm text-gray-600 text-center">
                     Sudah punya akun?
                     <a href="{{ url('/login') }}" class="text-yellow-500 font-semibold hover:underline">Masuk di sini</a>

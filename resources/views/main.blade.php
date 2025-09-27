@@ -27,7 +27,8 @@
         </a>
       </div>
 
-      <div class="mt-10 md:mt-0 flex justify-center w-full md:w-auto">
+      <div class="mt-10 md:mt-0 flex justify-center md:justify-end w-full md:w-auto md:ml-10 lg:ml-20">
+        <div class="mt-10 md:mt-0 flex justify-center md:justify-end w-full md:w-auto ml-auto">
         <lottie-player
           src="{{ asset('images/3qRjLQJtwZ.json') }}"
           background="transparent"
