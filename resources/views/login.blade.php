@@ -37,7 +37,7 @@
                             class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                             placeholder="Masukkan password" autocomplete="off" required>
                     </div>
-                    <x-buttonLoginRegister label="LOGIN" />
+                    <x-button.buttonLoginRegister label="LOGIN" />
                 </form>
 
                 <p class="mt-8 text-sm text-gray-600 text-center">

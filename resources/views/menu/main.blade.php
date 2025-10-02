@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')z
 
-<head>
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MakanDulu</title>
-  @vite('resources/css/app.css')
-</head>
+@section('content')
+<div class="max-w-7xl mx-auto px-6 py-10">
+  <h1 class="text-2xl font-bold mb-6">Daftar Menu</h1>
 
-<body class="bg-gray-100 font-sans">
-  @include('layouts.navbar')
-<h1>halaman menu ygy</h1>
-</body>
-</html>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    @foreach($menus as $menu)
+    <x-card.card-large-pilihan
+      image="{{ asset('public/image_menu/'.$menu->category->name.'/'.$menu->image) }}"
+      title="{{ $menu->name }}"
+      category="{{ $menu->category->name}}"
+      price="{{ number_format($menu->price, 0, ',', '.') }}" />
+    @endforeach
+  </div>
+</div>
+@endsection

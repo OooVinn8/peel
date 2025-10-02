@@ -16,4 +16,9 @@ class Product extends Model
         'image',
         'is_recommendation',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 }

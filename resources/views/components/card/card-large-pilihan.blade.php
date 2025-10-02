@@ -1,3 +1,5 @@
+@props(['image', 'title', 'category', 'price'])
+
 <div class="relative bg-gray-100 rounded-xl shadow overflow-hidden md:row-span-2 h-104">
     <img src="{{ $image }}" alt="{{ $title }}" class="w-full h-75 object-cover">
     <div class="p-4">
