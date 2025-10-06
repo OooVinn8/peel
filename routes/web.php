@@ -21,4 +21,5 @@ Route::get('/profile', [UserController::class, 'showProfileForm']);
 
 Route::get('/menu', [MenuController::class, 'index'])->name('menu.main');
 
+
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
