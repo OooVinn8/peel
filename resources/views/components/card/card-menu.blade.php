@@ -1,6 +1,6 @@
 @props(['image' => '', 'title' => '', 'category' => '', 'price' => ''])
 
-<div class="relative bg-gray-100 rounded-xl shadow overflow-hidden hover:scale-105 transition-transform duration-300">
+<div class="relative bg-gray-100 rounded-xl shadow overflow-hidden hover:scale-102 transition-transform duration-500">
     <img src="{{ $image }}" alt="{{ $title }}" class="w-full h-48 object-cover">
 
     <div class="p-4">

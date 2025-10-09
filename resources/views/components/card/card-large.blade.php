@@ -1,5 +1,5 @@
-<div class="relative bg-gray-100 rounded-xl shadow overflow-hidden md:row-span-2 h-104">
-    <img src="{{ $image }}" alt="{{ $title }}" class="w-full h-75 object-cover">
+<div class="relative bg-gray-100 rounded-xl shadow overflow-hidden md:row-span-2 h-104 hover:scale-102 transition-transform duration-500">
+    <img src="{{ $image }}" alt="{{ $title }}" class="w-full h-48 object-cover">
     @if($discount)
     <span class="absolute top-2 right-2 bg-yellow-500 text-black font-bold px-3 py-1 rounded-md">
         -{{ $discount }}%
@@ -14,5 +14,6 @@
             <span class="text-gray-400 line-through">Rp{{ $originalPrice }}</span>
             @endif
         </div>
+        
     </div>
 </div>

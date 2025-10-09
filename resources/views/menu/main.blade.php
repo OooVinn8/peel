@@ -3,7 +3,6 @@
 @section('content')
 <div class="max-w-7xl mx-auto px-6 py-10">
 
-  {{-- Title --}}
   <div class="text-center mb-6">
     <h1 class="text-2xl md:text-3xl font-bold">
       Jelajahi <span class="text-blue-500">Makan</span>anMu</span> Hari Ini
@@ -13,7 +12,6 @@
     </p>
   </div>
 
-  {{-- Search Bar --}}
   <div class="flex justify-center mb-6">
   <form method="GET" action="{{ route('menu.main') }}" class="relative w-full md:w-1/2">
     <input type="text" name="search" value="{{ request('search') }}"
@@ -26,7 +24,6 @@
   </form>
 </div>
 
-  {{-- Categories --}}
   <div class="flex flex-wrap gap-2 justify-center mb-8">
     @foreach($categories as $category)
       <a href="{{ route('menu.main', ['category' => $category->id]) }}"
@@ -37,9 +34,9 @@
     @endforeach
   </div>
 
-  {{-- Menu Grid pakai Card buatanmu --}}
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
     @forelse($menus as $menu)
+    <a href="{{ route('menu.menu-detail', $menu->id) }}">
       <x-card.card-large-pilihan
         image="{{ asset('image_menu/'.$menu->category->name.'/'.$menu->image) }}"
         title="{{ $menu->name }}"

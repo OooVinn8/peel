@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
     @vite('resources/css/app.css')
+    <link rel="stylesheet" href="{{ asset('css/menu-detail.css') }}">
 </head>
 
 <body class="bg-gray-100 min-h-screen flex flex-col">

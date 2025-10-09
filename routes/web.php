@@ -20,6 +20,7 @@ Route::get('/main', [UserController::class, 'main']);
 Route::get('/profile', [UserController::class, 'showProfileForm']);
 
 Route::get('/menu', [MenuController::class, 'index'])->name('menu.main');
+Route::get('/menu/{id}', [MenuController::class, 'show'])->name('menu.menu-detail');
 
 
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');

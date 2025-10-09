@@ -15,4 +15,13 @@ class MenuController extends Controller
 
         return view('menu.main', compact('menus', 'categories'));
     }
+
+    public function show($id)
+    {
+        // Ambil satu produk berdasarkan ID
+        $menu = Product::with('category')->findOrFail($id);
+
+        // Kirim ke view
+        return view('menu.menu-detail', compact('menu'));
+    }
 }

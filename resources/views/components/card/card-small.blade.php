@@ -1,4 +1,4 @@
-<div class="relative bg-gray-100 rounded-xl shadow-md flex overflow-hidden flex-1">
+<div class="relative bg-gray-100 rounded-xl shadow-md flex overflow-hidden flex-1 hover:scale-102 transition-transform duration-500">
     <div class="relative h-full">
         <img src="{{ $image }}" alt="{{ $title }}" class="w-40 h-30 object-cover">
         @if($discount)

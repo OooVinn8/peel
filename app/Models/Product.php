@@ -13,6 +13,7 @@ class Product extends Model
         'price',
         'stock',
         'rating',
+        'reviews',
         'image',
         'is_recommendation',
     ];
