@@ -29,16 +29,16 @@
 
       <div class="mt-10 md:mt-0 flex justify-center md:justify-end w-full md:w-auto md:ml-10 lg:ml-20">
         <div class="mt-10 md:mt-0 flex justify-center md:justify-end w-full md:w-auto ml-auto">
-        <lottie-player
-          src="{{ asset('images/3qRjLQJtwZ.json') }}"
-          background="transparent"
-          speed="1"
-          class="w-72 h-72 sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[400px]"
-          loop
-          autoplay>
-        </lottie-player>
+          <lottie-player
+            src="{{ asset('images/3qRjLQJtwZ.json') }}"
+            background="transparent"
+            speed="1"
+            class="w-72 h-72 sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[400px]"
+            loop
+            autoplay>
+          </lottie-player>
+        </div>
       </div>
-    </div>
   </section>
 
   <section class="max-w-7xl mx-auto px-6 mb-10">
@@ -56,11 +56,10 @@
       @endphp
 
       @foreach($kategori as $item)
-      <div
-        class="flex flex-col items-center space-y-2 w-20 sm:w-24 border border-gray-200 rounded-lg p-3 hover:shadow-md transition">
+      <a href="{{ route('menu.main', ['category' => strtolower($item['label'])]) }}" class="flex flex-col items-center space-y-2 w-20 sm:w-24 border border-gray-200 rounded-lg p-3 hover:shadow-md transition-transform duration-500 transform hover:scale-105">
         <img src="{{ asset('images/'.$item['img']) }}" alt="{{ $item['label'] }}" class="w-10 h-10 sm:w-12 sm:h-12">
         <span class="text-xs sm:text-sm font-medium">{{ $item['label'] }}</span>
-      </div>
+      </a>
       @endforeach
     </div>
   </section>

@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @include('layouts.navbar')
 
+@section('title', 'Menu - MakanDulu')
+
 @section('content')
 <div class="max-w-7xl mx-auto px-6 py-10">
 
@@ -21,24 +23,26 @@
       <button
         type="submit"
         class="absolute right-2 top-1/2 -translate-y-1/2 text-white px-3 py-1 rounded-full flex items-center justify-center">
-        <img src="{{ asset('images/search.png') }}" alt="Search" class="w-5 h-5">
+        <img src="{{ asset('images/search.png') }}" alt="Search" class="w-5 h-5 cursor-pointer">
       </button>
     </form>
   </div>
 
+
   {{-- Kategori --}}
   <div class="flex flex-wrap gap-2 justify-center mb-8">
     @foreach($categories as $category)
-    <a
-      href="{{ route('menu.main', ['category' => $category->id]) }}"
-      class="px-4 py-1 rounded-full text-sm
-              {{ request('category') == $category->id 
-                  ? 'bg-blue-600 text-white' 
-                  : 'bg-blue-500 text-white hover:bg-blue-600' }}">
-      {{ $category->name }}
-    </a>
+    @php
+    $isActive = strtolower(request('category')) == strtolower($category->name);
+    $categoryUrl = $isActive
+    ? route('menu.main', ['search' => request('search')])
+    : route('menu.main', array_merge(request()->only('search'), ['category' => $category->id]));
+    @endphp
+
+    <a href="{{ $categoryUrl }}" class="px-4 py-1 rounded-full text-sm {{ $isActive ? 'bg-yellow-500 text-white' : 'bg-blue-500 text-white hover:bg-yellow-400' }}"> {{ $category->name }} </a>
     @endforeach
   </div>
+
 
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
     @forelse($menus as $menu)
@@ -72,4 +76,5 @@
   @endif
 
 </div>
+@include('layouts.footer')
 @endsection

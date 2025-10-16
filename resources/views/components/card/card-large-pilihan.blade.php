@@ -20,9 +20,8 @@
                 <span class="text-yellow-500 font-bold text-lg">{{ $price }}</span>
             </div>
         </div>
-        <button class="mt-4 bg-yellow-400 text-white w-full py-2 rounded-lg hover:bg-yellow-500 flex items-center justify-center space-x-2 font-semibold">
-            <img src="{{ asset('images/cart-menu.png') }}" alt="Cart" class="w-5 h-5">
-            <span>Tambah ke Keranjang</span>
-        </button>
+        <x-button.buttonTambahKeKeranjang>
+                Tambah ke Keranjang
+        </x-button.buttonTambahKeKeranjang>
     </div>
 </div>

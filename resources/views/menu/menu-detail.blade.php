@@ -1,10 +1,11 @@
 @extends('layouts.app')
-
+@include('layouts.navbar')
 @section('content')
 <div class="p-8">
     <a href="{{ url()->previous() }}"
         class="inline-flex items-center text-yellow-600 hover:text-yellow-700 font-semibold mb-4">
-        ← Kembali
+        <img src="{{ asset('images/back.png') }}" alt="Cart" class="w-6 h-6">
+        <span>Kembali</span>
     </a>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
@@ -29,16 +30,16 @@
                     <div class="flex text-yellow-500 text-2xl space-x-[2px]">
                         @for ($i = 1; $i <= 5; $i++)
                             @if ($menu->rating >= $i)
-                                ★
+                            ★
                             @elseif ($menu->rating >= $i - 0.5)
-                                <span class="relative text-gray-300 block w-[20px] text-center ml-1.5 mr-1.5">
-                                    <span class="absolute left-0 overflow-hidden w-[50%] text-yellow-500">★</span>
-                                    ★
-                                </span>
+                            <span class="relative text-gray-300 block w-[20px] text-center ml-1.5 mr-1.5">
+                                <span class="absolute left-0 overflow-hidden w-[50%] text-yellow-500">★</span>
+                                ★
+                            </span>
                             @else
-                                <span class="text-gray-300 mr-1.5">★</span>
+                            <span class="text-gray-300 mr-1.5">★</span>
                             @endif
-                        @endfor
+                            @endfor
                     </div>
                     <span class="text-gray-500 font-medium">{{ number_format($menu->rating, 1) }}/5</span>
                 </div>
@@ -69,30 +70,28 @@
                 </div>
             </div>
 
-            <button class="bg-yellow-500 text-white w-full py-3 rounded-lg hover:bg-yellow-600 flex items-center justify-center space-x-2 font-semibold text-lg mt-3 cursor-pointer">
-                <img src="{{ asset('images/cart-menu.png') }}" alt="Cart" class="w-6 h-6">
-                <span>Tambah ke Keranjang</span>
-            </button>
+            <x-button.buttonTambahKeKeranjang>
+                Tambah ke Keranjang
+            </x-button.buttonTambahKeKeranjang>
         </div>
     </div>
 </div>
 
 {{-- Bagian produk lainnya --}}
-<div class="container mx-auto px-8 mt-16">
+<div class="container mx-auto px-8 mt-5 pb-10">
     <h2 class="text-2xl font-bold text-gray-800 mb-6">
-        Produk Lain di Kategori {{ $menu->category->name }}
+        Menu Lain di Kategori {{ $menu->category->name }}
     </h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         @foreach ($relatedMenus as $related)
-    <x-card.card-large-pilihan 
-        :image="asset('image_menu/' . $related->category->name . '/' . $related->image)"
-        :title="$related->name"
-        :category="$related->category->name"
-        :price="'Rp' . number_format($related->price, 0, ',', '.')"
-        :rating="number_format($related->rating, 1)"
-    />
-@endforeach
+        <x-card.card-large-pilihan
+            :image="asset('image_menu/' . $related->category->name . '/' . $related->image)"
+            :title="$related->name"
+            :category="$related->category->name"
+            :price="'Rp' . number_format($related->price, 0, ',', '.')"
+            :rating="number_format($related->rating, 1)" />
+        @endforeach
     </div>
 </div>
 @endsection

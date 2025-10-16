@@ -11,7 +11,7 @@
 </head>
 
 <body class="bg-gray-100 min-h-screen flex flex-col">
-    <main class="flex-1 container mx-auto p-6">
+    <main class="flex-1">
         @yield('content')
     </main>
     @yield('scripts')

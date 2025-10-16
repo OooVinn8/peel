@@ -11,12 +11,12 @@
         </a>
 
         <a href="{{ url('/menu') }}"
-            class="{{ Request::is('menu') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600' }}">
+            class="{{ Request::is('menu') || Request::is('menu/*') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600' }}">
             Menu
         </a>
 
-        <a href="{{ url('/aboutUs') }}"
-            class="{{ Request::is('aboutUs') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600' }}">
+        <a href="{{ url('/about') }}"
+            class="{{ Request::is('about') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600' }}">
             Tentang Kami
         </a>
     </div>

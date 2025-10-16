@@ -68,9 +68,9 @@
       <div class="md:col-span-3 px-6 md:border-r md:border-white/30">
         <h3 class="text-lg font-bold mb-4">NAVIGASI</h3>
         <ul class="space-y-2 text-sm">
-          <li><a href="#" class="hover:text-yellow-300 transition">Beranda</a></li>
-          <li><a href="#" class="hover:text-yellow-300 transition">Produk</a></li>
-          <li><a href="#" class="hover:text-yellow-300 transition">Tentang Kami</a></li>
+          <li><a href="{{url('/')}}" class="hover:text-yellow-300 transition">Beranda</a></li>
+          <li><a href="{{('/menu')}}" class="hover:text-yellow-300 transition">Produk</a></li>
+          <li><a href="{{('/about')}}" class="hover:text-yellow-300 transition">Tentang Kami</a></li>
         </ul>
       </div>
 
@@ -83,9 +83,8 @@
         </ul>
         <h3 class="text-lg font-bold mt-6 mb-4">LAYANAN PELANGGAN</h3>
         <ul class="space-y-2 text-sm">
-          <li><a href="#" class="hover:text-yellow-300 transition">FAQ</a></li>
-          <li><a href="#" class="hover:text-yellow-300 transition">Kebijakan Privasi</a></li>
-          <li><a href="#" class="hover:text-yellow-300 transition">Syarat & Ketentuan</a></li>
+          <li><a href="{{('/kebijakan-privasi')}}" class="hover:text-yellow-300 transition">Kebijakan Privasi</a></li>
+          <li><a href="{{('/syarat-dan-ketentuan')}}" class="hover:text-yellow-300 transition">Syarat & Ketentuan</a></li>
         </ul>
       </div>
 
