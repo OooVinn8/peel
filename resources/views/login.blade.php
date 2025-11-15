@@ -29,7 +29,7 @@
                         <label class="block text-sm font-medium mb-1 text-gray-700">Email</label>
                         <input type="email" name="email"
                             class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                            placeholder="Masukkan email" autocomplete="off" required>
+                            placeholder="Masukkan email" autocomplete="off" required autofocus>
                     </div>
                     <div>
                         <label class="block text-sm font-medium mb-1 text-gray-700">Password</label>

@@ -1,9 +1,8 @@
 @extends('layouts.app')
 @include('layouts.navbar')
-
 @section('title', 'Kebijakan Privasi - MakanDulu')
-
 @section('content')
+
 <section class="w-full bg-gray-50 text-gray-800">
 
   {{-- HERO --}}

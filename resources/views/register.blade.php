@@ -30,7 +30,7 @@
                         <label class="block text-sm font-medium mb-1 text-gray-700">Username</label>
                         <input type="text" name="username" value="{{ old('username') }}"
                             class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                            placeholder="Masukkan username" autocomplete="off">
+                            placeholder="Masukkan username" autocomplete="off" autofocus>
                         @error('username')
                             <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                         @enderror
@@ -74,7 +74,7 @@
                         </div>
                     </div>
 
-                    <x-buttonLoginRegister label="REGISTER" />
+                    <x-button.buttonLoginRegister label="REGISTER" />
                 </form>
 
                 <p class="mt-6 text-sm text-gray-600 text-center">

@@ -18,9 +18,9 @@ class ProductSeeder extends Seeder
                     'category_id' => 1,
                     'description' => 'Ayam Goreng Crispy adalah pilihan sempurna bagi pecinta cita rasa klasik yang renyah dan gurih. Potongan ayam segar dibumbui dengan racikan rempah khas, kemudian dilapisi tepung berbumbu dan digoreng hingga keemasan. Bagian luar ayam terasa renyah menggigit, sementara daging di dalamnya tetap lembut dan juicy. Disajikan bersama nasi hangat serta sambal pedas yang menggoda, menu ini memberikan pengalaman makan yang sederhana namun memuaskan di setiap gigitan.',
                     'price' => 20000,
-                    'image' => 'ayam-goreng-crispy.jpg',
+                    'image' => 'ayam-goreng-crispy.png',
                 ],
-    
+
                 [
                     'name' => 'Ayam Bakar Madu',
                     'category_id' => 1,
@@ -28,11 +28,11 @@ class ProductSeeder extends Seeder
                     'price' => 22000,
                     'image' => 'ayam-bakar-madu.jpg',
                 ],
-    
+
                 [
-                    'name' => 'Ayam Geprek Sambal Bawang',
+                    'name' => 'Ayam Geprek',
                     'category_id' => 1,
-                    'description' => 'Kelezatan Ayam Geprek Sambal Bawang berasal dari kesederhanaannya. Ayam goreng tepung yang renyah digeprek hingga pipih lalu disiram sambal bawang pedas yang dibuat dari cabai, bawang putih, dan minyak panas. Aroma bawang yang harum berpadu dengan rasa pedas yang membakar lidah, menciptakan sensasi khas yang bikin nagih. Setiap suapan menghadirkan kombinasi antara kriuk ayam goreng dan pedasnya sambal yang menggugah selera makan.',
+                    'description' => 'Kelezatan Ayam Geprek berasal dari kesederhanaannya. Ayam goreng tepung yang renyah digeprek hingga pipih lalu disiram sambal bawang pedas yang dibuat dari cabai, bawang putih, dan minyak panas. Aroma bawang yang harum berpadu dengan rasa pedas yang membakar lidah, menciptakan sensasi khas yang bikin nagih. Setiap suapan menghadirkan kombinasi antara kriuk ayam goreng dan pedasnya sambal yang menggugah selera makan.',
                     'price' => 18000,
                     'image' => 'ayam-geprek.jpg',
                 ],
@@ -155,9 +155,9 @@ class ProductSeeder extends Seeder
                     'price' => 20000,
                     'image' => 'ayam-goreng-kalasan.jpg',
                 ],
-    
+
                 //Cemilan
-    
+
                 [
                     'name' => 'Tahu Crispy',
                     'category_id' => 6,
@@ -221,9 +221,9 @@ class ProductSeeder extends Seeder
                     'price' => 15000,
                     'image' => 'onion-ring.jpg',
                 ],
-    
+
                 //Mie
-    
+
                 [
                     'name' => 'Mie Goreng Spesial',
                     'category_id' => 4,
@@ -280,9 +280,9 @@ class ProductSeeder extends Seeder
                     'price' => 20000,
                     'image' => 'bihun-goreng.jpg',
                 ],
-    
+
                 //Minuman
-    
+
                 [
                     'name' => 'Es Teh Manis',
                     'category_id' => 7,
@@ -367,7 +367,7 @@ class ProductSeeder extends Seeder
                     'price' => 12000,
                     'image' => 'lemon-tea.jpg',
                 ],
-    
+
                 [
                     'name' => 'Nasi Goreng Spesial',
                     'category_id' => 3,
@@ -417,7 +417,7 @@ class ProductSeeder extends Seeder
                     'price' => 25000,
                     'image' => 'nasi-kari-jepang.jpg',
                 ],
-    
+
                 [
                     'name' => 'Nasi Goreng Spesial',
                     'category_id' => 3,
@@ -467,7 +467,7 @@ class ProductSeeder extends Seeder
                     'price' => 25000,
                     'image' => 'nasi-kari-jepang.jpg',
                 ],
-    
+
                 [
                     'name' => 'Es Krim Coklat',
                     'category_id' => 5,
@@ -524,7 +524,7 @@ class ProductSeeder extends Seeder
                     'price' => 25000,
                     'image' => 'souffle-pancake.jpg',
                 ],
-    
+
                 [
                     'name' => 'Ikan Bakar Jimbaran',
                     'category_id' => 2,
@@ -597,6 +597,5 @@ class ProductSeeder extends Seeder
                 ],
             ]
         );
-        
     }
 }

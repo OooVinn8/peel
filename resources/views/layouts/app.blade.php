@@ -2,6 +2,7 @@
 <html lang="id">
 
 <head>
+    <link rel="icon" href="{{ asset('icon.ico') }}" type="image/x-icon">
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
