@@ -7,11 +7,13 @@
     <title>MakanDulu - @yield('title')</title>
     <link rel="icon" href="{{ asset('icon.ico') }}" type="image/x-icon">
     @vite('resources/css/app.css')
+    <script src="{{ asset('js/admin.js') }}"></script>
 </head>
 
 <body class="bg-gray-100">
     <div class="flex">
-        <aside class="fixed top-0 left-0 h-screen w-[300px] bg-white border-r border-gray-200 flex flex-col justify-between shadow-md">
+        <aside
+            class="fixed top-0 left-0 h-screen w-[300px] bg-white border-r border-gray-200 flex flex-col justify-between shadow-md">
             <div>
                 <div class="p-6 flex items-center justify-center border-b border-gray-200">
                     <img src="{{ asset('images/logo.png') }}" alt="MakanDulu" class="h-12 object-contain">
@@ -50,10 +52,10 @@
                 </nav>
             </div>
 
-            <div class="p-4 border-t border-gray-200 text-center">
+            <div class="p-4 border-t border-gray-200 text-center" >
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <button
+                    <button type="submit" onclick="return confirm('Apakah kamu yakin ingin logout?')"
                         class="w-full py-2 text-sm rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition font-semibold">
                         Logout
                     </button>

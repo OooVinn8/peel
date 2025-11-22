@@ -63,7 +63,7 @@
     <div class="grid md:grid-cols-3 gap-8 px-6 md:px-20 text-center">
         {{-- Founder 1 --}}
         <div class="bg-white rounded-3xl p-6 shadow-md hover:shadow-xl transition duration-500 hover:-translate-y-2">
-            <img src="{{ asset('image_founder/davin.jpg') }}"
+            <img src="{{ asset('image_founder/davin.png') }}"
                 alt="Davin Octaryan"
                 class="w-32 h-32 object-cover rounded-full mx-auto mb-5 border-4 border-yellow-400 shadow-md">
             <h3 class="text-xl font-bold text-blue-700 mb-1">Davin Octaryan</h3>
@@ -75,7 +75,7 @@
 
         {{-- Founder 2 --}}
         <div class="bg-white rounded-3xl p-6 shadow-md hover:shadow-xl transition duration-500 hover:-translate-y-2">
-            <img src="{{ asset('image_founder/hanssen.jpg') }}"
+            <img src="{{ asset('image_founder/hanssen.png') }}"
                 alt="Hanssen"
                 class="w-32 h-32 object-cover rounded-full mx-auto mb-5 border-4 border-yellow-400 shadow-md">
             <h3 class="text-xl font-bold text-blue-700 mb-1">Hanssen</h3>
@@ -87,7 +87,7 @@
 
         {{-- Founder 3 --}}
         <div class="bg-white rounded-3xl p-6 shadow-md hover:shadow-xl transition duration-500 hover:-translate-y-2">
-            <img src="{{ asset('image_founder/kevin.jpg') }}"
+            <img src="{{ asset('image_founder/kevin.png') }}"
                 alt="Kevin Alera"
                 class="w-32 h-32 object-cover rounded-full mx-auto mb-5 border-4 border-yellow-400 shadow-md">
             <h3 class="text-xl font-bold text-blue-700 mb-1">Kevin Alera</h3>

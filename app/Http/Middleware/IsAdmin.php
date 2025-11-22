@@ -14,7 +14,7 @@ class IsAdmin
     {
         // Pastikan user sudah login dan role-nya adalah 'admin'
         if (!auth()->check() || auth()->user()->role !== 'admin') {
-            abort(403, 'Akses ditolak. Halaman ini hanya untuk admin.');
+            abort(403, 'Stop! Kamu bukan admin. Makan dulu biar perut kenyang, hati tenang.');
         }
 
         return $next($request);

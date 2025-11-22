@@ -54,19 +54,6 @@
                         {{ $product->stock > 0 ? $product->stock : 'Habis' }}
                     </span>
                 </p>
-
-                <div class="flex items-center gap-2">
-                    <span class="font-medium">Rekomendasi:</span>
-                    <form action="{{ route('admin.products.update', $product->id) }}" method="POST">
-                        @csrf
-                        @method('PUT')
-                        <select name="is_recommendation" onchange="this.form.submit()"
-                            class="border border-gray-300 rounded-lg px-2 py-1 text-gray-700 focus:ring-2 focus:ring-blue-400 focus:outline-none">
-                            <option value="1" {{ $product->is_recommendation ? 'selected' : '' }}>Ya</option>
-                            <option value="0" {{ !$product->is_recommendation ? 'selected' : '' }}>Tidak</option>
-                        </select>
-                    </form>
-                </div>
             </div>
 
             {{-- Deskripsi Produk --}}

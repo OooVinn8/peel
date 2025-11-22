@@ -16,14 +16,24 @@ class AdminDashboardController extends Controller
         $userCount = User::where('role', 'pembeli')->count();
         $productCount = Product::count();
         $categoryCount = Category::count();
-        $orders = Order::where('status', 'pending')->latest()->get();
+        
+        $orders = Order::whereIn('status', ['Menunggu Konfirmasi', 'Sedang Diproses'])
+        ->orderByRaw("
+            CASE
+                WHEN status = 'Menunggu Konfirmasi' THEN 1
+                WHEN status = 'Sedang Diproses' THEN 2
+            END
+        ")
+        ->orderBy('created_at', 'desc')
+        ->get();
 
-        return view('admin.dashboard', [
-            'orderCount'   => $orderCount,
-            'userCount'    => $userCount,
-            'productCount' => $productCount,
-            'categoryCount'=> $categoryCount,
-            'orders'       => $orders,
-        ]);
+
+        return view('admin.dashboard', compact(
+            'orderCount',
+            'userCount',
+            'productCount',
+            'categoryCount',
+            'orders'
+        ));
     }
 }

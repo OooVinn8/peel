@@ -29,6 +29,27 @@
                     <p class="text-gray-400 text-sm mt-2 italic">Belum ada produk rekomendasi.</p>
                 @endif
             </div>
+
+            {{-- Produk Habis --}}
+            <div class="flex-1 min-w-[250px] bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                <h3 class="text-gray-600 font-medium text-sm mb-1">
+                    Produk Habis <span class="block text-xs text-gray-400">Stok 0</span>
+                </h3>
+
+                @if ($outOfStockProducts->count() > 0)
+                    <ul class="mt-3 space-y-1 text-sm text-gray-700 list-disc list-inside max-h-40 overflow-y-auto">
+                        @foreach ($outOfStockProducts as $product)
+                            <li class="flex justify-between items-center">
+                                <span>{{ $product->name }}</span>
+                                <a href="{{ route('admin.products.edit', $product->id) }}"
+                                class="text-yellow-600 hover:underline text-xs ml-2">Edit Stok</a>
+                            </li>
+                        @endforeach
+                    </ul>
+                @else
+                    <p class="text-gray-400 text-sm mt-2 italic">Tidak ada produk yang habis.</p>
+                @endif
+            </div>
         </div>
 
         {{-- Search dan Tambah --}}

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\CartItem;
-use App\Models\Product; // atau Menu kalau kamu pakai model Menu
+use App\Models\Product; // ganti sesuai model yang dipakai
 use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
@@ -26,27 +26,33 @@ class CartController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'product_id' => 'required|exists:products,id', // ganti 'products' ke 'menus' jika pakai tabel menus
+            'product_id' => 'required|exists:products,id',
             'quantity'   => 'required|integer|min:1',
             'note'       => 'nullable|string|max:255',
         ]);
 
         $userId = Auth::id();
+        $product = Product::findOrFail($request->product_id);
+
+        // Cek stok
+        if ($request->quantity > $product->stock) {
+            return back()->with('error', 'Jumlah melebihi stok yang tersedia!');
+        }
 
         // Cek apakah item sudah ada di cart
         $cartItem = CartItem::where('user_id', $userId)
-            ->where('product_id', $request->product_id)
-            ->first();
-
-        $product = Product::findOrFail($request->product_id);
+                            ->where('product_id', $request->product_id)
+                            ->first();
 
         if ($cartItem) {
-            // Jika sudah ada, tambahkan jumlahnya
+            if ($cartItem->quantity + $request->quantity > $product->stock) {
+                return back()->with('error', 'Jumlah di keranjang melebihi stok yang tersedia!');
+            }
+
             $cartItem->quantity += $request->quantity;
             $cartItem->note = $request->note;
             $cartItem->save();
         } else {
-            // Jika belum ada, buat baru
             CartItem::create([
                 'user_id'    => $userId,
                 'product_id' => $request->product_id,
@@ -69,9 +75,16 @@ class CartController extends Controller
         ]);
 
         $cartItem = CartItem::where('user_id', Auth::id())->findOrFail($id);
-        $cartItem->update(['quantity' => $request->quantity]);
+        $product = $cartItem->product;
 
-        return back();
+        if ($request->quantity > $product->stock) {
+            return response()->json(['error' => 'Jumlah melebihi stok yang tersedia!']);
+        }
+
+        $cartItem->quantity = $request->quantity;
+        $cartItem->save();
+
+        return response()->json(['success' => 'Jumlah di keranjang berhasil diperbarui!']);
     }
 
     /**
@@ -82,15 +95,43 @@ class CartController extends Controller
         $cartItem = CartItem::where('user_id', Auth::id())->findOrFail($id);
         $cartItem->delete();
 
-        return back();
+        return back()->with('success', 'Produk berhasil dihapus dari keranjang!');
     }
 
+    /**
+     * Update catatan item di cart
+     */
     public function updateNote(Request $request, $id)
     {
+        $request->validate([
+            'note' => 'nullable|string|max:255',
+        ]);
+
         $cartItem = CartItem::findOrFail($id);
         $cartItem->note = $request->note;
         $cartItem->save();
 
         return back()->with('success', 'Catatan berhasil diperbarui.');
+    }
+
+    /**
+     * Tambah item ke cart via session (opsional)
+     */
+    public function add(Request $request)
+    {
+        $cart = session()->get('cart', []);
+        $id = $request->product_id;
+        $product = Product::findOrFail($id);
+
+        // cek stok session
+        $currentQty = $cart[$id] ?? 0;
+        if ($currentQty + 1 > $product->stock) {
+            return back()->with('error', 'Jumlah melebihi stok yang tersedia!');
+        }
+
+        $cart[$id] = $currentQty + 1;
+        session()->put('cart', $cart);
+
+        return back()->with('success', 'Ditambahkan ke keranjang!');
     }
 }

@@ -21,7 +21,7 @@
                 @if(session('success'))
                 <div class="bg-green-100 text-green-600 p-3 rounded-lg mb-4 text-sm">
                     {{ session('success') }}
-                </div>
+                </div>a
                 @endif
 
                 <form action="{{ url('/register') }}" method="POST" class="space-y-4">

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -6,6 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -30,33 +32,72 @@ class CategoryController extends Controller
         return view('admin.categories.create');
     }
 
-    public function store(Request $r)
+    public function store(Request $request)
     {
-        $r->validate(['name' => 'required']);
-        Category::create(['name' => $r->name]);
-        return redirect()->route('admin.categories.index')->with('success', 'Kategori berhasil ditambahkan.');
+        $request->validate([
+            'name'  => 'required',
+            'image' => 'required|image|mimes:png|max:2048',
+        ]);
+
+        $data = $request->only('name');
+
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.png';
+            $request->image->move(public_path('image_category'), $imageName);
+            $data['image'] = $imageName;
+        }
+
+        Category::create($data);
+
+        return redirect()->route('admin.categories.index')
+            ->with('success', 'Kategori berhasil ditambahkan!');
     }
 
     public function edit($id)
     {
-        return view('admin.categories.edit', ['category' => Category::findOrFail($id)]);
+        return view('admin.categories.edit', [
+            'category' => Category::findOrFail($id)
+        ]);
     }
 
-    public function update(Request $r, $id)
+    public function update(Request $request, $id)
     {
-        $r->validate(['name' => 'required']);
-        Category::findOrFail($id)->update(['name' => $r->name]);
-        return redirect()->route('admin.categories.index')->with('success', 'Kategori berhasil diperbarui.');
+        $request->validate([
+            'name'  => 'required',
+            'image' => 'nullable|image|mimes:png|max:2048',
+        ]);
+
+        $category = Category::findOrFail($id);
+
+        $category->name = $request->name;
+
+        if ($request->hasFile('image')) {
+
+            // hapus gambar lama
+            $oldPath = public_path('image_category/' . $category->image);
+            if (file_exists($oldPath)) unlink($oldPath);
+
+            // upload baru
+            $imageName = time() . '.png';
+            $request->image->move(public_path('image_category'), $imageName);
+            $category->image = $imageName;
+        }
+
+        $category->save();
+
+        return redirect()->route('admin.categories.index')
+            ->with('success', 'Kategori berhasil diperbarui!');
     }
 
     public function destroy($id)
     {
         $category = Category::findOrFail($id);
 
-        // 🔥 Hapus semua produk yang memiliki kategori ini
-        Product::where('category_id', $category->id)->delete();
+        if ($category->image && file_exists(storage_path('app/public/image_category/' . $category->image))) {
+            unlink(storage_path('app/public/image_category/' . $category->image));
+        }
 
-        // Setelah itu baru hapus kategori-nya
+        Product::where('category_id', $category->id)->delete();
         $category->delete();
 
         return back()->with('success', 'Kategori dan produk terkait berhasil dihapus.');

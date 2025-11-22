@@ -4,50 +4,50 @@
     <h3 class="text-2xl font-bold mb-6 text-white">Ikuti Kami</h3>
     <div class="flex justify-center gap-4 flex-wrap">
 
-      <div class="group flex items-center bg-white rounded-full overflow-hidden transition-all duration-300 w-12 hover:w-40 cursor-pointer">
+    <a href="https://www.facebook.com" target="_blank" class="group flex items-center bg-white rounded-full overflow-hidden transition-all duration-300 w-12 hover:w-40 cursor-pointer">
         <div class="w-12 h-12 flex items-center justify-center shrink-0">
-          <img src="/icon/facebook.png" alt="Facebook" class="w-6 h-6">
+            <img src="/icon/facebook.png" alt="Facebook" class="w-6 h-6">
         </div>
         <span class="ml-2 text-blue-600 font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          Facebook
+            Facebook
         </span>
-      </div>
+    </a>
 
-      <div class="group flex items-center bg-white rounded-full overflow-hidden transition-all duration-300 w-12 hover:w-40 cursor-pointer">
+    <a href="https://www.instagram.com" target="_blank" class="group flex items-center bg-white rounded-full overflow-hidden transition-all duration-300 w-12 hover:w-40 cursor-pointer">
         <div class="w-12 h-12 flex items-center justify-center shrink-0">
-          <img src="/icon/instagram.png" alt="Instagram" class="w-6 h-6">
+            <img src="/icon/instagram.png" alt="Instagram" class="w-6 h-6">
         </div>
         <span class="ml-2 text-blue-600 font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          Instagram
+            Instagram
         </span>
-      </div>
+    </a>
 
-      <div class="group flex items-center bg-white rounded-full overflow-hidden transition-all duration-300 w-12 hover:w-40 cursor-pointer">
+    <a href="https://twitter.com" target="_blank" class="group flex items-center bg-white rounded-full overflow-hidden transition-all duration-300 w-12 hover:w-40 cursor-pointer">
         <div class="w-12 h-12 flex items-center justify-center shrink-0">
-          <img src="/icon/twitter.png" alt="Twitter" class="w-6 h-6">
+            <img src="/icon/twitter.png" alt="Twitter" class="w-6 h-6">
         </div>
         <span class="ml-2 text-blue-600 font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          Twitter
+            Twitter
         </span>
-      </div>
+    </a>
 
-      <div class="group flex items-center bg-white rounded-full overflow-hidden transition-all duration-300 w-12 hover:w-44 cursor-pointer">
+    <a href="https://www.youtube.com" target="_blank" class="group flex items-center bg-white rounded-full overflow-hidden transition-all duration-300 w-12 hover:w-44 cursor-pointer">
         <div class="w-12 h-12 flex items-center justify-center shrink-0">
-          <img src="/icon/youtube.png" alt="YouTube" class="w-8 h-6">
+            <img src="/icon/youtube.png" alt="YouTube" class="w-8 h-6">
         </div>
         <span class="ml-2 text-blue-600 font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          YouTube
+            YouTube
         </span>
-      </div>
+    </a>
 
-      <div class="group flex items-center bg-white rounded-full overflow-hidden transition-all duration-300 w-12 hover:w-40 cursor-pointer">
+    <a href="https://www.tiktok.com" target="_blank" class="group flex items-center bg-white rounded-full overflow-hidden transition-all duration-300 w-12 hover:w-40 cursor-pointer">
         <div class="w-12 h-12 flex items-center justify-center shrink-0">
-          <img src="/icon/tiktok.png" alt="TikTok" class="w-6 h-6">
+            <img src="/icon/tiktok.png" alt="TikTok" class="w-6 h-6">
         </div>
         <span class="ml-2 text-blue-600 font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          TikTok
+            TikTok
         </span>
-      </div>
+    </a>
 
     </div>
   </div>

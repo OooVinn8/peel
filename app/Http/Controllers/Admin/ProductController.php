@@ -24,11 +24,13 @@ class ProductController extends Controller
 
         $products = $query->latest()->get();
         $recommendedProducts = Product::where('is_recommendation', true)->get();
+        $outOfStockProducts = Product::where('stock', 0)->get();
 
         return view('admin.products.index', [
             'products' => $products,
             'totalProducts' => Product::count(),
             'recommendedProducts' => $recommendedProducts,
+            'outOfStockProducts' => $outOfStockProducts,
         ]);
     }
 
@@ -97,44 +99,66 @@ class ProductController extends Controller
      * Update produk
      */
     public function update(Request $request, $id)
-    {
-        $product = Product::findOrFail($id);
+{
+    $product = Product::findOrFail($id);
 
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'category_id' => 'required|exists:categories,id',
-            'price' => 'required|numeric|min:0',
-            'stock' => 'required|integer|min:0',
-            'description' => 'nullable|string',
-            'rating' => 'nullable|numeric|min:0|max:5',
-            'is_recommendation' => 'nullable|boolean',
-            'image' => 'nullable|image|max:2048',
-        ]);
+    $validated = $request->validate([
+        'name' => 'required|string|max:255',
+        'category_id' => 'required|exists:categories,id',
+        'price' => 'required|numeric|min:0',
+        'stock' => 'required|integer|min:0',
+        'description' => 'nullable|string',
+        'rating' => 'nullable|numeric|min:0|max:5',
+        'is_recommendation' => 'nullable|boolean',
+        'image' => 'nullable|image|max:2048',
+    ]);
 
-        // Upload gambar baru jika ada
-        if ($request->hasFile('image')) {
-            $imageName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('image_menu'), $imageName);
-            $validated['image'] = $imageName;
+    $validated['is_recommendation'] = $request->boolean('is_recommendation', false);
+
+    // generate folder baru sesuai kategori
+    $newFolder = strtolower(str_replace(' ', '_', Category::find($validated['category_id'])->name));
+    $oldFolder = strtolower(str_replace(' ', '_', $product->category->name));
+
+    // kalau ganti kategori & file ada → pindahin folder
+    if ($oldFolder !== $newFolder && $product->image) {
+        $oldPath = public_path("image_menu/$oldFolder/{$product->image}");
+        $newPathDir = public_path("image_menu/$newFolder");
+
+        if (!file_exists($newPathDir)) {
+            mkdir($newPathDir, 0777, true);
         }
 
-        // Boolean konversi
-        $validated['is_recommendation'] = $request->boolean('is_recommendation', false);
-
-        $product->update($validated);
-
-        return redirect()->route('admin.products.index')
-            ->with('success', 'Produk berhasil diperbarui.');
+        if (file_exists($oldPath)) {
+            rename($oldPath, "$newPathDir/{$product->image}");
+        }
     }
 
-    /**
-     * Hapus produk
-     */
+    // kalau upload gambar baru
+    if ($request->hasFile('image')) {
+
+        // hapus yang lama
+        $existingPath = public_path("image_menu/$newFolder/{$product->image}");
+        if (file_exists($existingPath) && $product->image) {
+            unlink($existingPath);
+        }
+
+        // simpan baru
+        $filename = strtolower(uniqid()."_".time().".".$request->image->extension());
+        $request->image->move(public_path("image_menu/$newFolder"), $filename);
+
+        $validated['image'] = $filename;
+    }
+
+    $product->update($validated);
+
+    return redirect()->route('admin.products.index')
+        ->with('success', 'Produk berhasil diperbarui.');
+}
+
+    //Hapus produk
     public function destroy($id)
     {
         $product = Product::findOrFail($id);
-
-        // Hapus file gambar jika ada
         if ($product->image && file_exists(public_path('image_menu/' . $product->image))) {
             unlink(public_path('image_menu/' . $product->image));
         }

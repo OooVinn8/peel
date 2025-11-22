@@ -19,6 +19,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Ayam Goreng Crispy adalah pilihan sempurna bagi pecinta cita rasa klasik yang renyah dan gurih. Potongan ayam segar dibumbui dengan racikan rempah khas, kemudian dilapisi tepung berbumbu dan digoreng hingga keemasan. Bagian luar ayam terasa renyah menggigit, sementara daging di dalamnya tetap lembut dan juicy. Disajikan bersama nasi hangat serta sambal pedas yang menggoda, menu ini memberikan pengalaman makan yang sederhana namun memuaskan di setiap gigitan.',
                     'price' => 20000,
                     'image' => 'ayam-goreng-crispy.png',
+                    'stock' => 20,
+                    'is_recommendation' => 1,
                 ],
 
                 [
@@ -27,6 +29,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Ayam Bakar Madu menghadirkan perpaduan rasa manis, gurih, dan sedikit aroma smoky yang khas. Daging ayam dibumbui dengan rempah pilihan dan dilumuri madu murni sebelum dibakar perlahan di atas bara api. Proses pembakaran yang tepat menghasilkan lapisan karamel alami di permukaan ayam yang menambah kelezatan. Rasa manis madu yang berpadu dengan gurihnya daging menciptakan harmoni rasa yang pas di lidah, cocok disantap dengan nasi hangat dan lalapan segar.',
                     'price' => 22000,
                     'image' => 'ayam-bakar-madu.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
 
                 [
@@ -35,6 +39,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Kelezatan Ayam Geprek berasal dari kesederhanaannya. Ayam goreng tepung yang renyah digeprek hingga pipih lalu disiram sambal bawang pedas yang dibuat dari cabai, bawang putih, dan minyak panas. Aroma bawang yang harum berpadu dengan rasa pedas yang membakar lidah, menciptakan sensasi khas yang bikin nagih. Setiap suapan menghadirkan kombinasi antara kriuk ayam goreng dan pedasnya sambal yang menggugah selera makan.',
                     'price' => 18000,
                     'image' => 'ayam-geprek.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Ayam Penyet',
@@ -42,6 +48,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Ayam Penyet adalah hidangan khas Jawa yang memadukan kelembutan ayam goreng berbumbu dengan sambal pedas tomat segar. Daging ayamnya digoreng hingga keemasan lalu dipenyet di atas cobek bersama sambal yang baru diulek. Rasa gurih ayam berpadu dengan aroma cabai dan bawang yang kuat, memberikan kehangatan di lidah. Disajikan bersama nasi putih dan lalapan segar, menu ini memberikan cita rasa tradisional yang autentik dan penuh kenangan.',
                     'price' => 19000,
                     'image' => 'ayam-penyet.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Ayam Pop (Padang)',
@@ -49,6 +57,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Ayam Pop merupakan salah satu hidangan legendaris dari ranah Minangkabau. Ayam dimasak dengan cara direbus dalam santan dan rempah ringan, kemudian digoreng sebentar hingga berwarna keemasan pucat. Teksturnya lembut, gurih, dan memiliki rasa khas yang tidak terlalu berat. Disajikan dengan sambal lado ijo yang pedas segar serta nasi putih hangat, Ayam Pop memberikan cita rasa lembut yang menenangkan namun tetap kaya rempah.',
                     'price' => 25000,
                     'image' => 'ayam-pop.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Ayam Kremes',
@@ -56,6 +66,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Ayam Kremes terkenal dengan teksturnya yang unik: renyah di luar, lembut di dalam, dan dilengkapi dengan taburan kremesan gurih yang menggoda. Ayam dibumbui dengan rempah tradisional lalu digoreng hingga matang sempurna. Kremesnya yang renyah memberikan sensasi tambahan di setiap suapan. Disajikan bersama sambal terasi pedas dan lalapan segar, Ayam Kremes menjadi pilihan favorit keluarga yang tak pernah gagal menggugah selera.',
                     'price' => 25000,
                     'image' => 'ayam-kremes.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Ayam Rica-Rica',
@@ -63,6 +75,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Ayam Rica-Rica merupakan hidangan khas Manado yang terkenal karena kepedasannya yang menggigit dan aroma rempahnya yang kuat. Potongan ayam dimasak bersama bumbu rica yang terdiri dari cabai merah, bawang, serai, dan daun jeruk, menghasilkan rasa pedas menyengat namun tetap seimbang. Bagi penggemar makanan pedas, Ayam Rica-Rica ini akan memberikan sensasi panas yang nikmat dan menggugah nafsu makan hingga suapan terakhir..',
                     'price' => 20000,
                     'image' => 'ayam-ricarica.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Ayam Teriyaki',
@@ -70,6 +84,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Ayam Teriyaki mengusung cita rasa Jepang yang lembut dan elegan. Potongan daging ayam fillet dimasak dengan saus teriyaki buatan sendiri yang terbuat dari kecap asin, madu, dan jahe, menghasilkan rasa manis gurih yang khas. Daging ayam yang empuk berpadu dengan saus kental yang melapisi permukaannya, menciptakan sensasi rasa yang seimbang. Cocok disajikan bersama nasi hangat atau sayuran tumis untuk hidangan bergaya oriental.',
                     'price' => 20000,
                     'image' => 'ayam-teriyaki.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Ayam Kungpao',
@@ -77,6 +93,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Ayam Kungpao adalah hidangan klasik dari Tiongkok yang terkenal dengan cita rasa pedas manis dan aroma kacang mede yang khas. Potongan ayam dimasak dengan saus kecap oriental, cuka, dan cabai kering, menghasilkan rasa gurih dengan sentuhan pedas yang nikmat. Tambahan paprika dan kacang mede menambah tekstur yang kaya dan menggoda. Setiap suapan menghadirkan keseimbangan rasa yang sempurna antara pedas, gurih, dan sedikit manis.',
                     'price' => 25000,
                     'image' => 'ayam-kungpao.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Ayam Taliwang',
@@ -84,6 +102,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Ayam Taliwang berasal dari Lombok dan dikenal dengan bumbu pedasnya yang kuat serta aroma bakaran yang menggoda. Ayam muda dibumbui dengan cabai, bawang, terasi, dan rempah khas, kemudian dibakar hingga bumbunya meresap sempurna. Hasilnya adalah daging ayam yang lembut dengan rasa pedas menggigit yang khas. Menu ini menjadi pilihan sempurna bagi pecinta kuliner Nusantara yang menyukai sensasi pedas dan rempah autentik.',
                     'price' => 25000,
                     'image' => 'ayam-taliwang.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Ayam Betutu Bali',
@@ -91,6 +111,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Ayam Betutu adalah hidangan tradisional Bali yang terkenal kaya rempah. Ayam utuh dilumuri bumbu base genep, lalu dibungkus daun pisang dan dimasak perlahan hingga empuk. Proses pemasakan yang lama membuat bumbu meresap hingga ke serat daging. Rasa gurih, pedas, dan harum berpadu menjadi satu. Ayam Betutu menjadi simbol cita rasa Bali yang kompleks dan menggugah selera, cocok disantap bersama nasi hangat dan sambal matah.',
                     'price' => 25000,
                     'image' => 'ayam-betutu-bali.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Ayam Katsu',
@@ -98,6 +120,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Ayam Katsu menghadirkan kelezatan khas Jepang dengan tekstur renyah dan rasa gurih yang lembut. Daging ayam fillet dibalut tepung roti panko, lalu digoreng hingga berwarna keemasan. Lapisan luarnya garing sempurna, sementara bagian dalamnya tetap lembut. Disajikan dengan saus katsu yang manis gurih serta nasi putih hangat, menu ini cocok untuk segala usia dan menjadi favorit di berbagai restoran Jepang.',
                     'price' => 25000,
                     'image' => 'ayam-katsu.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Ayam Hainan',
@@ -105,6 +129,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Ayam Hainan berasal dari Tiongkok Selatan dan dikenal dengan cita rasa yang lembut dan menenangkan. Daging ayam direbus perlahan hingga empuk, lalu disajikan bersama nasi gurih yang dimasak dengan kaldu ayam dan minyak wijen. Saus jahe bawang dan kecap asin menjadi pelengkap sempurna. Hidangan ini tidak terlalu berbumbu, tetapi menawarkan kesegaran alami dari bahan-bahan berkualitas tinggi.',
                     'price' => 25000,
                     'image' => 'ayam-hainan.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Ayam Sambal Matah',
@@ -112,6 +138,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Ayam Sambal Matah menghadirkan perpaduan antara gurihnya ayam goreng dan segarnya sambal khas Bali. Sambal matah terbuat dari bawang merah, cabai rawit, serai, dan daun jeruk yang diiris tipis lalu disiram minyak panas. Aroma khas serai dan bawang merah menyebar harum, menciptakan cita rasa pedas segar yang tidak berlebihan. Menu ini cocok untuk kamu yang menyukai hidangan pedas tapi ringan di mulut.',
                     'price' => 25000,
                     'image' => 'ayam-sambal-matah.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Ayam Saus Mentega',
@@ -119,6 +147,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Ayam Saus Mentega adalah hidangan bergaya oriental yang menggoda dengan aroma mentega dan kecap manis. Potongan ayam digoreng sebentar lalu ditumis bersama saus mentega, bawang bombai, dan sedikit saus tiram. Rasa gurih, manis, dan sedikit smoky berpadu sempurna. Sausnya yang kental dan harum menempel sempurna di daging ayam, membuat menu ini terasa mewah namun tetap bersahabat dengan lidah lokal.',
                     'price' => 20000,
                     'image' => 'ayam-saus-mentega.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Ayam Lada Hitam',
@@ -126,6 +156,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Ayam Lada Hitam menawarkan cita rasa gurih dan pedas hangat khas masakan oriental. Daging ayam dimasak dengan saus lada hitam pekat yang dibuat dari campuran kecap asin, bawang bombai, dan lada hitam segar. Aroma pedas lada berpadu dengan rasa gurih saus yang meresap hingga ke dalam daging. Cocok untuk disantap dengan nasi hangat, menghadirkan pengalaman makan yang kuat namun tetap seimbang.',
                     'price' => 20000,
                     'image' => 'ayam-lada-hitam.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Ayam Asam Manis',
@@ -133,6 +165,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Hidangan ini menghadirkan kombinasi rasa manis, asam, dan gurih dalam satu sajian. Potongan ayam goreng tepung yang renyah disiram dengan saus asam manis yang dibuat dari tomat, nanas, dan paprika segar. Setiap gigitan memberikan sensasi segar dan lembut yang memanjakan lidah. Cocok untuk kamu yang menyukai hidangan berwarna cerah dengan rasa yang seimbang dan menyegarkan.',
                     'price' => 20000,
                     'image' => 'ayam-asam-manis.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Ayam Barbeque',
@@ -140,6 +174,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Ayam Barbeque menggabungkan cita rasa barat dengan kelezatan lokal. Daging ayam dibumbui saus barbeque buatan sendiri, lalu dipanggang perlahan hingga menghasilkan aroma smoky yang menggoda. Rasa gurih manis sausnya berpadu dengan tekstur ayam yang empuk dan juicy.',
                     'price' => 20000,
                     'image' => 'ayam-barbeque.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Ayam Kari India',
@@ -147,6 +183,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Ayam Kari India menghadirkan kekayaan rempah yang intens dengan aroma eksotis. Potongan ayam dimasak dalam saus kari kental berbasis santan dan rempah seperti jintan, kayu manis, kapulaga, serta kunyit. Rasa pedas hangatnya lembut namun mendalam, membuat tubuh terasa nyaman. Menu ini cocok bagi penikmat makanan beraroma kuat yang ingin menjelajahi rasa khas India dalam versi lokal yang bersahabat di lidah.',
                     'price' => 25000,
                     'image' => 'ayam-kari-india.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Ayam Goreng Kalasan',
@@ -154,6 +192,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Ayam Goreng Kalasan adalah ikon kuliner khas Yogyakarta yang menawarkan cita rasa manis gurih nan lembut. Ayam dimasak dengan santan dan air kelapa muda hingga empuk, lalu digoreng perlahan hingga berwarna cokelat keemasan. Rasa gurih manisnya terasa khas dan tidak mudah dilupakan. Disajikan bersama sambal tomat dan lalapan segar, Ayam Goreng Kalasan membawa suasana makan rumahan yang hangat dan penuh nostalgia.',
                     'price' => 20000,
                     'image' => 'ayam-goreng-kalasan.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
 
                 //Cemilan
@@ -164,6 +204,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Tahu goreng dengan balutan tepung berbumbu istimewa yang digoreng hingga keemasan. Renyah di luar, lembut di dalam, dan gurihnya bikin ketagihan di setiap gigitan. Isi per porsi: 6 potong',
                     'price' => 10000,
                     'image' => 'tahu-crispy.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Tempe Mendoan',
@@ -171,6 +213,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Tempe tipis khas Banyumas yang dibalut adonan tepung lembut dengan sentuhan daun bawang segar. Disajikan hangat, aromanya menggoda, rasanya gurih dan lembut. Isi per porsi: 5 potong',
                     'price' => 10000,
                     'image' => 'tempe-mendoan.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Kentang Goreng',
@@ -178,6 +222,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Kentang pilihan yang dipotong memanjang dan digoreng hingga garing keemasan. Teksturnya renyah di luar, lembut di dalam',
                     'price' => 15000,
                     'image' => 'kentang_goreng.png',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Pisang Goreng',
@@ -185,6 +231,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Pisang manis matang dibalut adonan gurih dan digoreng hingga renyah keemasan. Perpaduan rasa manis dan gurih yang pas untuk teman minum teh sore hari. Isi per porsi: 3 potong',
                     'price' => 15000,
                     'image' => 'pisang-goreng.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Risoles',
@@ -192,6 +240,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Kulit tipis yang membungkus isian sayuran, ayam, dan saus creamy gurih. Setelah digoreng, menghasilkan tekstur renyah di luar dan lembut di dalam. Isi per porsi: 3 risoles',
                     'price' => 10000,
                     'image' => 'risoles.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Lumpia',
@@ -199,6 +249,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Camilan klasik berisi rebung, sayuran, dan ayam cincang yang dibungkus kulit tipis lalu digoreng renyah. Sajian lezat yang tak pernah lekang oleh waktu. Isi per porsi: 3 lumpia',
                     'price' => 10000,
                     'image' => 'lumpia.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Bakwan Jagung',
@@ -206,6 +258,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Campuran jagung manis, tepung, dan bumbu khas yang digoreng hingga garing. Cita rasa gurih manisnya bikin camilan ini selalu jadi favorit. Isi per porsi: 3 potong',
                     'price' => 10000,
                     'image' => 'bakwan-jagung.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Churros',
@@ -213,6 +267,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Camilan khas Spanyol dengan tekstur luar yang renyah dan bagian dalam yang lembut. Disajikan dengan saus cokelat hangat yang lumer di mulut.',
                     'price' => 15000,
                     'image' => 'churros.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Onion Ring',
@@ -220,6 +276,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Irisan bawang bombai segar dilapisi tepung berbumbu dan digoreng hingga renyah keemasan. Setiap gigitan menghadirkan perpaduan gurih dan manis alami bawang.',
                     'price' => 15000,
                     'image' => 'onion-ring.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
 
                 //Mie
@@ -230,6 +288,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Mie Goreng Spesial kami dibuat dari mie pilihan yang dimasak dengan bumbu rahasia khas dapur nusantara. Setiap helai mie digoreng hingga matang sempurna dengan tambahan potongan ayam, telur orak-arik, udang kecil, dan sayuran segar seperti kol dan toge.',
                     'price' => 20000,
                     'image' => 'mie-goreng-spesial.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Mie Ayam Bakso',
@@ -237,6 +297,9 @@ class ProductSeeder extends Seeder
                     'description' => 'Nikmati semangkuk kelezatan Mie Ayam Bakso dengan kuah kaldu bening yang gurih dan wangi. Mie lembut berpadu dengan potongan ayam berbumbu kecap yang kaya rasa, serta bakso telur sapi kenyal yang menambah kenikmatan setiap suapan. Dihidangkan hangat dengan taburan daun bawang dan sedikit minyak ayam yang harum.',
                     'price' => 23000,
                     'image' => 'mie-ayam-bakso.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 1,
+                    'is_recommendation' => 1,
                 ],
                 [
                     'name' => 'Mie Ayam Jamur',
@@ -244,6 +307,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Mie Ayam Jamur ini menghadirkan kombinasi rasa gurih dan manis dari ayam serta jamur yang dimasak dengan saus kecap kental dan sedikit minyak wijen. Tekstur mie yang lembut berpadu dengan topping melimpah, menciptakan rasa yang lembut di lidah.',
                     'price' => 23000,
                     'image' => 'mie-ayam-jamur.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Mie Kuah Pedas',
@@ -251,6 +316,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Buat kamu pencinta sensasi pedas, Mie Kuah Pedas ini wajib dicoba! Kuahnya kaya akan bumbu cabai, bawang, dan rempah pilihan yang diracik hingga menghasilkan rasa pedas gurih yang nagih. Mie-nya kenyal dan disajikan bersama potongan ayam suwir, sayuran segar dan perasan jeruk yang membuat rasanya spesial.',
                     'price' => 20000,
                     'image' => 'mie-kuah-pedas.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Mie Tek Tek',
@@ -258,6 +325,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Mie Tek Tek khas pedagang kaki lima yang legendaris kini hadir dengan cita rasa autentik. Mie digoreng langsung di atas wajan panas bersama bumbu bawang, cabai, telur, kol, sawi, dan kecap manis yang memberikan aroma smoky menggoda.',
                     'price' => 20000,
                     'image' => 'mie-tek-tek.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Mie Spaghetti Aglio Olio',
@@ -265,6 +334,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Perpaduan rasa Italia yang ringan dan elegan hadir dalam sepiring Mie Spaghetti Aglio Olio. Dimasak dengan minyak zaitun, bawang putih cincang, dan cabai kering serta potongan udang, lalu diberi sedikit taburan keju parmesan dan peterseli segar.',
                     'price' => 28000,
                     'image' => 'mie-spaghetti-aglio-olio.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Kwetiau Goreng',
@@ -272,6 +343,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Kwetiau Goreng kami dibuat dari kwetiau lebar yang lembut dan tidak mudah putus, digoreng dengan saus oriental yang gurih serta potongan udang dan telur. Aroma khas kecap asin dan minyak wijen berpadu menciptakan cita rasa Asia yang autentik.',
                     'price' => 20000,
                     'image' => 'kwetiau-goreng.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Bihun Goreng',
@@ -279,6 +352,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Bihun Goreng ini menggunakan bihun halus berkualitas tinggi yang digoreng bersama udang, telur, dan sayuran segar. Bumbu kecap manis dan rempah pilihan memberikan rasa gurih manis yang seimbang.',
                     'price' => 20000,
                     'image' => 'bihun-goreng.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
 
                 //Minuman
@@ -289,6 +364,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Kesegaran klasik yang tak pernah lekang oleh waktu. Es Teh Manis kami dibuat dari daun teh pilihan yang diseduh sempurna, menghasilkan warna keemasan dan aroma khas yang menenangkan. Dihidangkan dengan es batu melimpah dan gula dengan tingkat kemanisan pas, menjadikannya teman ideal untuk semua jenis hidangan.',
                     'price' => 8000,
                     'image' => 'es-teh-manis.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Es Jeruk Segar',
@@ -296,6 +373,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Perpaduan manis dan asam dari jeruk peras asli yang memberikan sensasi segar alami. Disajikan dengan es batu yang menambah kesejukan di setiap tegukan.',
                     'price' => 10000,
                     'image' => 'es-jeruk-segar.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Jus Alpukat',
@@ -303,6 +382,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Jus Alpukat kami dibuat dari buah alpukat segar pilihan yang dihaluskan hingga lembut, berpadu dengan susu kental manis dan sedikit gula. Rasanya creamy, manis, dan memanjakan lidah. Ditambah topping buah cherry diatasnya.',
                     'price' => 15000,
                     'image' => 'jus-alpukat.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Latte',
@@ -310,6 +391,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Perpaduan sempurna antara espresso berkualitas dan susu steamed yang lembut, menciptakan rasa seimbang antara pahit dan manis alami. Aroma kopinya harum menggoda, dengan lapisan foam tipis di atasnya.',
                     'price' => 22000,
                     'image' => 'latte.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Milkshake Coklat',
@@ -317,6 +400,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Minuman manis dan lembut yang terbuat dari campuran susu segar, cokelat premium, dan es krim. Disajikan dingin dengan tekstur kental serta cita rasa cokelat yang kuat namun tidak berlebihan.',
                     'price' => 18000,
                     'image' => 'milkshake-coklat.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Thai Tea',
@@ -324,6 +409,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Minuman khas Thailand ini dibuat dari teh hitam pilihan yang diseduh bersama susu kental manis, menghasilkan warna oranye pekat dan rasa creamy unik. Dihidangkan dingin dengan es batu yang melimpah, menciptakan kesegaran maksimal di setiap tegukan.',
                     'price' => 15000,
                     'image' => 'thai-tea.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Matcha Latte',
@@ -331,6 +418,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Rasakan cita rasa Jepang yang lembut dari Matcha Latte kami. Bubuk matcha asli dipadukan dengan susu segar, menghasilkan rasa earthy yang menenangkan dan aroma khas teh hijau. Disajikan panas atau dingin sesuai selera, cocok untuk menemani waktu santai.',
                     'price' => 20000,
                     'image' => 'matcha-latte.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Es Kopi Susu',
@@ -338,6 +427,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Minuman favorit para pencinta kopi modern. Campuran espresso, susu segar, dan gula aren menghasilkan rasa manis legit dengan aroma khas kopi yang kuat.',
                     'price' => 10000,
                     'image' => 'es-kopi-susu.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Es Kelapa Muda',
@@ -345,6 +436,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Segarnya air kelapa muda asli yang disajikan langsung dengan daging kelapa lembut dan es batu. Menyegarkan, alami, dan kaya elektrolit, cocok untuk mengembalikan energi setelah beraktivitas atau cuaca panas.',
                     'price' => 15000,
                     'image' => 'es-kelapa-muda.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Milkshake Vanila',
@@ -352,6 +445,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Nikmati kelembutan susu segar berpadu dengan rasa vanila klasik yang manis dan harum. Milkshake Vanila kami disajikan dingin dengan tekstur creamy yang lembut di lidah. Minuman yang simpel tapi selalu digemari.',
                     'price' => 18000,
                     'image' => 'milkshake-vanila.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Air Mineral',
@@ -359,6 +454,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Air mineral murni berkualitas tinggi yang disajikan dingin untuk memberikan kesegaran alami. Pilihan tepat untuk menemani setiap hidangan atau sekadar melepas dahaga.',
                     'price' => 5000,
                     'image' => 'air-mineral.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Lemon Tea',
@@ -366,6 +463,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Perpaduan sempurna antara teh hitam dan perasan lemon segar yang menciptakan rasa manis-asam menyegarkan. Cocok diminum dingin atau panas, memberikan sensasi segar yang membangkitkan semangat.',
                     'price' => 12000,
                     'image' => 'lemon-tea.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
 
                 [
@@ -374,6 +473,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Nasi goreng dengan cita rasa khas Indonesia yang dimasak bersama potongan ayam, udang, sosis, dan sayuran segar. Dilengkapi dengan telur mata sapi, timun, dan tomat yang menambah kenikmatan setiap suapan.',
                     'price' => 25000,
                     'image' => 'nasi-goreng-spesial.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Nasi Uduk',
@@ -381,6 +482,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Nasi uduk gurih dengan aroma santan dan rempah wangi khas Betawi, disajikan hangat di atas alas daun pisang. Lengkap dengan ayam suwir berbumbu, telur rebus, serundeng kelapa, kacang tanah goreng, dan sambal pedas yang menggugah selera. Perpaduan rasa gurih, manis, dan pedas yang sempurna untuk memulai hari dengan kelezatan tradisional Indonesia.',
                     'price' => 25000,
                     'image' => 'nasi-uduk.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Nasi Kuning Komplit',
@@ -388,70 +491,18 @@ class ProductSeeder extends Seeder
                     'description' => 'Nasi kuning harum yang dimasak dengan santan dan kunyit pilihan, menghadirkan aroma dan rasa gurih khas Nusantara. Disajikan lengkap dengan ayam goreng bumbu kuning yang renyah, tempe orek pedas manis, irisan telur dadar gulung, sambal merah khas rumah, serta sayuran segar.',
                     'price' => 25000,
                     'image' => 'nasi-kuning-komplit.jpg',
-                ],
-                [
-                    'name' => 'Nasi Campur Bali',
-                    'category_id' => 3,
-                    'description' => 'Hidangan khas Pulau Dewata dengan nasi putih hangat yang ditemani ayam betutu, sate lilit, lawar, sambal matah, dan kulit ayam goreng kriuk. Kombinasi rasa pedas, gurih, dan aromatik yang memanjakan lidah.',
-                    'price' => 25000,
-                    'image' => 'nasi-campur-bali.jpg',
-                ],
-                [
-                    'name' => 'Nasi Goreng Jawa',
-                    'category_id' => 3,
-                    'description' => 'Nasi goreng dengan bumbu khas Jawa yang manis dan gurih, dimasak bersama ayam suwir, sayuran segar, dan telur orak-arik. Disajikan dengan tambahan acar dan kerupuk untuk sensasi rasa tradisional yang autentik.',
-                    'price' => 25000,
-                    'image' => 'nasi-goreng-jawa.jpg',
-                ],
-                [
-                    'name' => 'Nasi Goreng Kampung',
-                    'category_id' => 3,
-                    'description' => 'Nasi goreng dengan cita rasa khas Jawa yang manis gurih, dimasak dengan bumbu tradisional dari bawang merah, bawang putih, cabai, dan kecap manis pilihan. Disajikan hangat dengan potongan ayam suwir, telur orak-arik, serta tambahan acar segar, tomat, dan kerupuk renyah.',
-                    'price' => 25000,
-                    'image' => 'nasi-goreng-kampung.jpg',
-                ],
-                [
-                    'name' => 'Nasi Kari Jepang',
-                    'category_id' => 3,
-                    'description' => 'Perpaduan sempurna antara ayam fillet goreng tepung (katsu) yang renyah di luar dan lembut di dalam, disajikan dengan nasi pulen dan kuah kari Jepang yang gurih serta sedikit manis. Kuahnya berisi potongan wortel dan kentang yang dimasak hingga empuk, memberikan rasa hangat dan kaya rempah khas Jepang.',
-                    'price' => 25000,
-                    'image' => 'nasi-kari-jepang.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
 
                 [
-                    'name' => 'Nasi Goreng Spesial',
-                    'category_id' => 3,
-                    'description' => 'Nasi goreng dengan cita rasa khas Indonesia yang dimasak bersama potongan ayam, udang, sosis, dan sayuran segar. Dilengkapi dengan telur mata sapi, timun, dan tomat yang menambah kenikmatan setiap suapan.',
-                    'price' => 25000,
-                    'image' => 'nasi-goreng-spesial.jpg',
-                ],
-                [
-                    'name' => 'Nasi Uduk',
-                    'category_id' => 3,
-                    'description' => 'Nasi uduk gurih dengan aroma santan dan rempah wangi khas Betawi, disajikan hangat di atas alas daun pisang. Lengkap dengan ayam suwir berbumbu, telur rebus, serundeng kelapa, kacang tanah goreng, dan sambal pedas yang menggugah selera. Perpaduan rasa gurih, manis, dan pedas yang sempurna untuk memulai hari dengan kelezatan tradisional Indonesia.',
-                    'price' => 25000,
-                    'image' => 'nasi-uduk.jpg',
-                ],
-                [
-                    'name' => 'Nasi Kuning Komplit',
-                    'category_id' => 3,
-                    'description' => 'Nasi kuning harum yang dimasak dengan santan dan kunyit pilihan, menghadirkan aroma dan rasa gurih khas Nusantara. Disajikan lengkap dengan ayam goreng bumbu kuning yang renyah, tempe orek pedas manis, irisan telur dadar gulung, sambal merah khas rumah, serta sayuran segar.',
-                    'price' => 25000,
-                    'image' => 'nasi-kuning-komplit.jpg',
-                ],
-                [
-                    'name' => 'Nasi Campur Bali',
-                    'category_id' => 3,
-                    'description' => 'Hidangan khas Pulau Dewata dengan nasi putih hangat yang ditemani ayam betutu, sate lilit, lawar, sambal matah, dan kulit ayam goreng kriuk. Kombinasi rasa pedas, gurih, dan aromatik yang memanjakan lidah.',
-                    'price' => 25000,
-                    'image' => 'nasi-campur-bali.jpg',
-                ],
-                [
                     'name' => 'Nasi Goreng Jawa',
                     'category_id' => 3,
                     'description' => 'Nasi goreng dengan bumbu khas Jawa yang manis dan gurih, dimasak bersama ayam suwir, sayuran segar, dan telur orak-arik. Disajikan dengan tambahan acar dan kerupuk untuk sensasi rasa tradisional yang autentik.',
                     'price' => 25000,
                     'image' => 'nasi-goreng-jawa.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Nasi Goreng Kampung',
@@ -459,6 +510,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Nasi goreng dengan cita rasa khas Jawa yang manis gurih, dimasak dengan bumbu tradisional dari bawang merah, bawang putih, cabai, dan kecap manis pilihan. Disajikan hangat dengan potongan ayam suwir, telur orak-arik, serta tambahan acar segar, tomat, dan kerupuk renyah.',
                     'price' => 25000,
                     'image' => 'nasi-goreng-kampung.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Nasi Kari Jepang',
@@ -466,6 +519,18 @@ class ProductSeeder extends Seeder
                     'description' => 'Perpaduan sempurna antara ayam fillet goreng tepung (katsu) yang renyah di luar dan lembut di dalam, disajikan dengan nasi pulen dan kuah kari Jepang yang gurih serta sedikit manis. Kuahnya berisi potongan wortel dan kentang yang dimasak hingga empuk, memberikan rasa hangat dan kaya rempah khas Jepang.',
                     'price' => 25000,
                     'image' => 'nasi-kari-jepang.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
+                ],
+
+                [
+                    'name' => 'Nasi Campur Bali',
+                    'category_id' => 3,
+                    'description' => 'Hidangan khas Pulau Dewata dengan nasi putih hangat yang ditemani ayam betutu, sate lilit, lawar, sambal matah, dan kulit ayam goreng kriuk. Kombinasi rasa pedas, gurih, dan aromatik yang memanjakan lidah.',
+                    'price' => 25000,
+                    'image' => 'nasi-campur-bali.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
 
                 [
@@ -474,6 +539,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Es krim coklat lembut dengan rasa manis yang pas dan tekstur creamy yang meleleh di mulut. Dibuat dari coklat berkualitas tinggi yang memberikan sensasi nikmat di setiap sendokannya.',
                     'price' => 18000,
                     'image' => 'es-krim-coklat.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Puding Coklat Vla',
@@ -481,6 +548,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Puding coklat lembut dengan aroma menggoda, disajikan bersama vla vanila manis yang menyelimuti setiap lapisan. Perpaduan rasa coklat pekat dan kelembutan vla menciptakan sensasi dessert yang menenangkan dan lezat.',
                     'price' => 15000,
                     'image' => 'puding-coklat-vla.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Cheesecake Strawberry',
@@ -488,6 +557,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Kue keju lembut berpadu dengan lapisan selai stroberi segar yang manis-asam menyegarkan. Disajikan dingin dengan dasar biskuit renyah, menciptakan rasa sempurna antara gurih, manis, dan segar dalam satu potongan.',
                     'price' => 28000,
                     'image' => 'cheesecake-strawberry.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Es Buah Segar',
@@ -495,6 +566,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Campuran aneka buah pilihan seperti melon, semangka, nanas, dan alpukat dan berbagai rasa nutrijel yang disajikan dengan sirup manis dan es serut dingin. Setiap suapan memberikan kesegaran alami yang pas untuk cuaca panas.',
                     'price' => 20000,
                     'image' => 'es-buah-segar.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 1,
                 ],
                 [
                     'name' => 'Choco Lava Cake',
@@ -502,6 +575,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Kue coklat lembut dengan bagian tengah yang lumer ketika dipotong. Disajikan hangat dengan tambahan potongan buah stoberi di atasnya, memberikan perpaduan rasa manis dan pahit yang sempurna.',
                     'price' => 20000,
                     'image' => 'choco-lava-cake.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Matcha Cheese Cake',
@@ -509,6 +584,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Perpaduan unik antara keju lembut dan bubuk matcha premium Jepang yang menghasilkan cita rasa gurih dan sedikit pahit yang menenangkan. Teksturnya halus dengan aroma teh hijau yang khas dan elegan.',
                     'price' => 30000,
                     'image' => 'matcha-cheese-cake.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Es Krim Matcha',
@@ -516,6 +593,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Es krim dengan rasa teh hijau khas Jepang yang lembut, manis, dan sedikit pahit di akhir. Memberikan sensasi menyegarkan sekaligus menenangkan bagi pecinta matcha sejati.',
                     'price' => 20000,
                     'image' => 'es-krim-matcha.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Souffle Pancake',
@@ -523,6 +602,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Pancake lembut dan tebal dengan tekstur ringan seperti awan, disajikan dengan madu, mentega, dan taburan gula halus.',
                     'price' => 25000,
                     'image' => 'souffle-pancake.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
 
                 [
@@ -531,6 +612,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Ikan segar dibakar dengan bumbu khas Jimbaran yang gurih dan sedikit manis, menghasilkan aroma bakaran yang menggoda. Disajikan dengan sambal matah, sambal kecap, dan lalapan segar, menghadirkan cita rasa Bali yang autentik.',
                     'price' => 45000,
                     'image' => 'ikan-bakar-jimbaran.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Udang Saus Padang',
@@ -538,6 +621,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Udang segar dimasak dengan saus Padang yang pedas manis dan kaya rempah. Tekstur udangnya yang juicy berpadu sempurna dengan rasa gurih pedas khas Sumatera Barat.',
                     'price' => 42000,
                     'image' => 'udang-saus-padang.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Cumi Goreng Tepung',
@@ -545,6 +630,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Cumi segar dilapisi tepung renyah dan digoreng hingga keemasan. Garing di luar, lembut di dalam, dan cocok disantap dengan saus sambal atau mayones.',
                     'price' => 38000,
                     'image' => 'cumi-goreng-tepung.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Kepiting Saus Tiram',
@@ -552,6 +639,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Kepiting pilihan dimasak dengan saus tiram kental yang gurih dan sedikit manis. Dilengkapi dengan bawang bombay, cabai merah, dan potongan jagung yang memperkaya rasa hidangan laut ini.',
                     'price' => 65000,
                     'image' => 'kepiting-saus-tiram.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Lobster Saus Pedas',
@@ -559,6 +648,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Lobster premium dengan daging tebal dan lembut, dimasak menggunakan saus pedas spesial yang menggugah selera. Hidangan mewah untuk momen makan yang istimewa.',
                     'price' => 95000,
                     'image' => 'lobster-saus-pedas.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Udang Bakar Madu',
@@ -566,6 +657,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Udang dibakar perlahan dengan olesan madu dan bumbu rempah khas, menghasilkan rasa manis gurih yang meresap hingga ke dalam daging. Aromanya harum dan menggoda.',
                     'price' => 45000,
                     'image' => 'udang-bakar-madu.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Cumi Saus Padang',
@@ -573,6 +666,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Cumi empuk yang dimasak dengan saus Padang pedas gurih berpadu dengan bumbu bawang dan cabai merah segar. Rasanya kuat, nikmat, dan menggugah selera makan.',
                     'price' => 40000,
                     'image' => 'cumi-saus-padang.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Gurame Bakar Kecap',
@@ -580,6 +675,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Gurame segar dibakar dengan olesan kecap manis dan rempah tradisional. Dihidangkan dengan sambal terasi dan lalapan segar untuk menambah kenikmatan makan siang Anda.',
                     'price' => 50000,
                     'image' => 'gurame-bakar-kecap.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Ikan Nila Goreng',
@@ -587,6 +684,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Ikan nila segar yang digoreng hingga renyah di luar namun tetap lembut di dalam. Disajikan dengan sambal bawang dan lalapan segar, sederhana tapi selalu jadi favorit.',
                     'price' => 35000,
                     'image' => 'ikan-nila-goreng.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
                 [
                     'name' => 'Udang Goreng Tepung',
@@ -594,6 +693,8 @@ class ProductSeeder extends Seeder
                     'description' => 'Udang segar dilapisi tepung crispy dengan rasa gurih yang pas. Renyah saat digigit, lembut di dalam, dan cocok untuk camilan atau lauk pendamping.',
                     'price' => 27000,
                     'image' => 'udang-goreng-tepung.jpg',
+                    'stock' => 20,
+                    'is_recommendation' => 0,
                 ],
             ]
         );

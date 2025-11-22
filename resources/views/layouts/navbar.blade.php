@@ -5,17 +5,17 @@
 
     <div class="flex-1 flex justify-center space-x-8 font-medium">
         <a href="{{ url('/') }}"
-           class="{{ Request::is('/') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600' }}">
+            class="{{ Request::is('/') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600' }}">
             Beranda
         </a>
 
         <a href="{{ url('/menu') }}"
-           class="{{ Request::is('menu') || Request::is('menu/*') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600' }}">
+            class="{{ Request::is('menu') || Request::is('menu/*') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600' }}">
             Menu
         </a>
 
         <a href="{{ url('/about') }}"
-           class="{{ Request::is('about') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600' }}">
+            class="{{ Request::is('about') ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600' }}">
             Tentang Kami
         </a>
     </div>
@@ -33,38 +33,44 @@
                     @endphp
 
                     @if ($user && $user->profile_picture)
-                        <img src="{{ asset('uploads/profile_pictures/' . $user->profile_picture) }}"
-                             alt="Profile"
-                             class="w-10 h-10 rounded-full object-cover border border-gray-300 shadow-sm">
+                        <img src="{{ asset('uploads/profile_pictures/' . $user->profile_picture) }}" alt="Profile"
+                            class="w-10 h-10 rounded-full object-cover border border-gray-300 shadow-sm">
                     @else
-                        <div class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 font-bold">
+                        <div
+                            class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 font-bold">
                             {{ strtoupper(substr($user->username, 0, 1)) }}
                         </div>
                     @endif
                 </button>
 
                 <div id="dropdownMenu"
-                     class="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded-lg shadow-lg hidden">
-                    <a href="{{ url('/profile') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profile</a>
+                    class="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden hidden">
+
+                    <a href="{{ url('/profile') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                        Profil
+                    </a>
+
+                    <a href="{{ url('/orders') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                        Pesanan Saya
+                    </a>
 
                     <form action="{{ route('logout') }}" method="POST" class="block">
                         @csrf
                         <button type="submit"
-                                class="w-full text-left px-4 py-2 text-red-500 hover:bg-gray-100">
+                            class="w-full text-left px-4 py-2 text-red-500 hover:bg-red-50 transition">
                             Logout
                         </button>
                     </form>
                 </div>
             </div>
-
         @else
             <div class="flex items-center space-x-3">
                 <a href="{{ url('/login') }}"
-                   class="px-5 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition">
+                    class="px-5 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition">
                     Masuk
                 </a>
                 <a href="{{ url('/register') }}"
-                   class="px-5 py-2 border border-blue-600 text-black font-bold rounded-lg hover:bg-blue-50 transition">
+                    class="px-5 py-2 border border-blue-600 text-black font-bold rounded-lg hover:bg-blue-50 transition">
                     Daftar
                 </a>
             </div>
@@ -73,21 +79,21 @@
 </nav>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const profileBtn = document.getElementById("profileBtn");
-    const dropdownMenu = document.getElementById("dropdownMenu");
+    document.addEventListener("DOMContentLoaded", function() {
+        const profileBtn = document.getElementById("profileBtn");
+        const dropdownMenu = document.getElementById("dropdownMenu");
 
-    if (profileBtn && dropdownMenu) {
-        profileBtn.addEventListener("click", function(e) {
-            e.stopPropagation();
-            dropdownMenu.classList.toggle("hidden");
-        });
+        if (profileBtn && dropdownMenu) {
+            profileBtn.addEventListener("click", function(e) {
+                e.stopPropagation();
+                dropdownMenu.classList.toggle("hidden");
+            });
 
-        document.addEventListener("click", function(e) {
-            if (!dropdownMenu.classList.contains("hidden") && !profileBtn.contains(e.target)) {
-                dropdownMenu.classList.add("hidden");
-            }
-        });
-    }
-});
+            document.addEventListener("click", function(e) {
+                if (!dropdownMenu.classList.contains("hidden") && !profileBtn.contains(e.target)) {
+                    dropdownMenu.classList.add("hidden");
+                }
+            });
+        }
+    });
 </script>

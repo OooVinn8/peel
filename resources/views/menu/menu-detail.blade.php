@@ -4,9 +4,9 @@
 
 @section('content')
     <div class="p-8">
-        <a href="{{ url()->previous() }}"
+        <a href="{{ route('menu.main') }}"
             class="inline-flex items-center text-yellow-600 hover:text-yellow-700 font-semibold mb-4">
-            <img src="{{ asset('images/back.png') }}" alt="Cart" class="w-6 h-6">
+            <img src="{{ asset('images/back.png') }}" alt="Back" class="w-6 h-6 mr-1">
             <span>Kembali</span>
         </a>
 
@@ -65,7 +65,7 @@
                     @csrf
                     <input type="hidden" name="product_id" value="{{ $menu->id }}">
 
-                    <div class="flex items-center space-x-3 mt-2">
+                    <div class="flex items-center space-x-3 mt-2 mb-10">
                         <label for="quantity" class="text-gray-800 font-bold text-lg">Kuantitas</label>
                         <div class="flex items-center space-x-2">
                             <button type="button" onclick="decrementQty()" class="rounded-full">
@@ -73,20 +73,13 @@
                             </button>
 
                             <input type="number" id="quantity" name="quantity" value="1" min="1"
-                                max="100"
+                                max="{{ $menu->stock }}" data-stock="{{ $menu->stock }}"
                                 class="w-16 text-center border border-gray-300 rounded-md text-lg font-semibold">
 
                             <button type="button" onclick="incrementQty()" class="rounded-full">
                                 <img src="{{ asset('images/plus-icon.png') }}" alt="Plus" class="w-8 h-8">
                             </button>
                         </div>
-                    </div>
-
-                    <div>
-                        <label for="note" class="text-gray-800 font-bold text-lg">Catatan Khusus</label>
-                        <textarea id="note" name="note" rows="3"
-                            placeholder="Misal: tanpa sambal, pedas sedang, bungkus terpisah..."
-                            class="w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-yellow-300"></textarea>
                     </div>
 
                     <x-button.buttonTambahKeKeranjang>
@@ -98,15 +91,17 @@
     </div>
 
     <div class="container mx-auto px-8 mt-5 pb-10">
-        <h2 class="text-2xl font-bold text-gray-800 mb-6">
-            Menu Lain di Kategori {{ $menu->category->name }}
-        </h2>
+        <div class="container mx-auto px-8 mt-5 pb-10">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                Menu Lain di Kategori {{ $menu->category->name }}
+            </h2>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            @foreach ($relatedMenus as $related)
-                <x-card.card-large-pilihan :image="asset('image_menu/' . $related->category->name . '/' . $related->image)" :title="$related->name" :category="$related->category->name" :price="'Rp' . number_format($related->price, 0, ',', '.')"
-                    :rating="number_format($related->rating, 1)" />
-            @endforeach
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                @foreach ($relatedMenus as $related)
+                    <x-card.card-large-pilihan :image="asset('image_menu/' . $related->category->name . '/' . $related->image)" :title="$related->name" :category="$related->category->name ?? '-'" :price="'Rp' . number_format($related->price, 0, ',', '.')"
+                        :stock="$related->stock" :link="route('menu.menu-detail', ['id' => $related->id])" />
+                @endforeach
+            </div>
         </div>
     </div>
 @endsection

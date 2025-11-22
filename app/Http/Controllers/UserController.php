@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -27,16 +27,17 @@ class UserController extends Controller
     {
         $request->validate([
             'username' => 'required|string|max:255',
-            'email'    => 'required|string|email|unique:users',
+            'email'    => 'required|string|email|unique:users,email',
             'phone'    => 'required|string|max:20',
             'password' => 'required|string|min:6|confirmed',
         ]);
 
-        $user = User::create([
+        User::create([
             'username' => $request->username,
             'email'    => $request->email,
             'phone'    => $request->phone,
             'password' => Hash::make($request->password),
+            'role'     => 'pembeli',
         ]);
 
         return redirect('/login')->with('success', 'Registrasi berhasil!');
@@ -45,17 +46,64 @@ class UserController extends Controller
     // Proses login
     public function login(Request $request)
     {
-        $credentials = $request->validate([
-            'email' => 'required|email',
+        $request->validate([
+            'email'    => 'required|email',
             'password' => 'required|string',
         ]);
 
+        $credentials = $request->only('email', 'password');
+
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect('/')->with('success', 'Login berhasil!');
+
+            $user = Auth::user();
+
+            // Redirect berdasarkan role
+            if ($user->role === 'admin') {
+                return redirect()->route('admin.dashboard');
+            } else {
+                return redirect()->route('home'); // user biasa
+            }
         }
 
         return back()->with('error', 'Email atau password salah!');
+    }
+
+    // Halaman utama user
+    public function main()
+    {
+        $this->authorizeUser();
+        return view('main');
+    }
+
+    // Halaman profil user
+    public function showProfileForm()
+    {
+        $user = $this->authorizeUser();
+
+        return view('profile', compact('user'));
+    }
+
+    // Halaman daftar pesanan user
+    public function myOrders()
+    {
+        $user = Auth::user();
+        $orders = $user->orders()
+            ->whereIn('status', ['Menunggu Konfirmasi', 'Sedang Diproses'])
+            ->latest()
+            ->get();
+
+        return view('orders', compact('orders'));
+    }
+
+    // Halaman detail pesanan user
+    public function showOrder($id)
+    {
+        $user = $this->authorizeUser();
+
+        $order = $user->orders()->where('id', $id)->firstOrFail();
+
+        return view('order-detail', compact('order'));
     }
 
     // Logout
@@ -65,27 +113,18 @@ class UserController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/')->with('success', 'Anda telah logout.');
+        return redirect('/')->with('success', 'Anda berhasil logout.');
     }
 
-    // Halaman profil (hanya user login)
-    public function showProfileForm()
+    /**
+     * Helper: pastikan user login & ambil datanya
+     */
+    private function authorizeUser()
     {
-        if (!Auth::check()) {
-            return redirect('/login');
-        }
-
         $user = Auth::user();
-        return view('profile', compact('user'));
-    }
-
-    // Halaman main (contoh: halaman utama)
-    public function main()
-    {
-        if (!Auth::check()) {
-            return redirect('/login');
+        if (!$user) {
+            redirect('/login')->send();
         }
-
-        return view('main');
+        return $user;
     }
 }

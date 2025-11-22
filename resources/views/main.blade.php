@@ -10,7 +10,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="bg-gray-100 font-sans"> 
+<body class="bg-gray-100 font-sans">
     @include('layouts.navbar')
 
     <section class="w-full bg-white shadow-md">
@@ -22,9 +22,9 @@
                 <p class="text-gray-600 mb-8 text-base sm:text-lg">
                     Nikmati kemudahan memesan menu cafe <br class="hidden sm:block"> secara online
                 </p>
-                <a href="#"
-                    class="inline-block px-6 py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition">
-                    Makan yuk!
+                <a href="#makanDeals" id="scrollButton"
+                class="inline-block px-6 py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition">
+                Makan yuk!
                 </a>
             </div>
 
@@ -37,39 +37,35 @@
             </div>
     </section>
 
+    <!-- Category -->
     <section class="max-w-7xl mx-auto px-6 mb-10">
         <div class="bg-white rounded-xl shadow-md p-6 flex flex-wrap justify-center sm:justify-between gap-4">
-            @php
-                $kategori = [
-                    ['img' => 'ayam.png', 'label' => 'Ayam'],
-                    ['img' => 'seafood.png', 'label' => 'Seafood'],
-                    ['img' => 'nasi.png', 'label' => 'Nasi'],
-                    ['img' => 'mie.png', 'label' => 'Mie'],
-                    ['img' => 'dessert.png', 'label' => 'Dessert'],
-                    ['img' => 'cemilan.png', 'label' => 'Cemilan'],
-                    ['img' => 'minuman.png', 'label' => 'Minuman'],
-                ];
-            @endphp
 
-            @foreach ($kategori as $item)
-                <a href="{{ route('menu.main', ['category' => strtolower($item['label'])]) }}"
+            @foreach ($categories as $item)
+                <a href="{{ route('menu.main', ['category' => strtolower($item->name)]) }}"
                     class="flex flex-col items-center space-y-2 w-20 sm:w-24 border border-gray-200 rounded-lg p-3 hover:shadow-md transition-transform duration-500 transform hover:scale-105">
-                    <img src="{{ asset('images/' . $item['img']) }}" alt="{{ $item['label'] }}"
+
+                    <img src="{{ asset('image_category/' . $item->image) }}" alt="{{ $item->name }}"
                         class="w-10 h-10 sm:w-12 sm:h-12">
-                    <span class="text-xs sm:text-sm font-medium">{{ $item['label'] }}</span>
+
+                    <span class="text-xs sm:text-sm font-medium">{{ $item->name }}</span>
                 </a>
             @endforeach
+
         </div>
     </section>
 
 
-    <!-- MakanDUlu -->
-    <section class="max-w-7xl mx-auto px-6 mb-10 relative">
+    <!-- MakanDulu -->
+    <section id="makanDeals" class="max-w-7xl mx-auto px-6 mb-10 relative">
         <div class="relative rounded-xl shadow-md overflow-hidden">
+
+            <!-- Background layer -->
             <div class="absolute top-0 left-0 w-full h-1/2 bg-blue-600 z-0"></div>
             <div class="absolute bottom-0 left-0 w-full h-1/2 bg-white z-0"></div>
 
             <div class="relative z-10">
+                <!-- Header -->
                 <div class="p-6 md:p-8">
                     <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
                         <h2 class="text-xl md:text-2xl font-extrabold text-white">
@@ -79,42 +75,53 @@
 
                         <div
                             class="flex items-center bg-white text-blue-600 px-4 py-2 rounded-lg font-bold text-lg md:text-xl">
-                            <span id="jam">12 : 00 : 00</span>
+                            <span id="jam" data-expire="{{ $expiresAt }}">00:00:00</span>
                         </div>
                     </div>
                 </div>
 
                 <script src="{{ asset('js/timer.js') }}"></script>
 
+                <!-- Content -->
                 <div class="px-6 md:px-8 py-2">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <x-card.card-large image="{{ asset('image_menu/Nasi/nasi_goreng.png') }}"
-                            title="Nasi Goreng Seafood" category="Nasi" discount="30" price="14.000"
-                            originalPrice="20.000" />
 
-                        <div class="md:col-span-2 flex flex-col gap-6">
-                            <x-card.card-small image="{{ asset('image_menu/Ayam/ayam-crispy-MD.png') }}"
-                                title="Ayam Crispy MD" category="Ayam" discount="50" price="7.500"
-                                originalPrice="15.000" />
+                        @foreach ($products as $key => $product)
+                            @if ($key === 0)
+                                <!-- Card besar -->
+                                <x-card.card-large :image="asset('image_menu/' . $product->category->name . '/' . $product->image)" :title="$product->name" :category="$product->category->name"
+                                    :price="number_format($product->price)" :id="$product->id" />
+                            @else
+                                {{-- Buka wrapper kecil pas card kedua --}}
+                                @if ($key === 1)
+                                    <div class="md:col-span-2 flex flex-col gap-6">
+                                @endif
 
-                            <x-card.card-small image="{{ asset('image_menu/Ayam/ayam-katsu.jpg') }}" title="Ayam Katsu"
-                                category="Ayam" discount="30" price="31.500" originalPrice="45.000" />
+                                <!-- Card kecil -->
+                                <x-card.card-small :image="asset('image_menu/' . $product->category->name . '/' . $product->image)" :title="$product->name" :category="$product->category->name"
+                                    :price="number_format($product->price)" :id="$product->id" />
 
-                            <x-card.card-small image="{{ asset('image_menu/Nasi/nasi-liwet.jpg') }}" title="Nasi Liwet"
-                                category="Nasi" discount="10" price="23.500" originalPrice="25.000" />
-                        </div>
+                                {{-- Tutup wrapper di akhir --}}
+                                @if ($loop->last)
                     </div>
+                    @endif
+                    @endif
+                    @endforeach
 
-                    <div class="mt-3 mb-4 text-right">
-                        <a href="{{ route('menu.main') }}" class="text-sm text-gray-600 hover:text-black">Lihat Semua
-                            &gt;</a>
-                    </div>
                 </div>
             </div>
+
+            <!-- Lihat semua -->
+            <div class="mt-3 mb-4 mr-8 text-right">
+                <a href="{{ route('menu.main') }}" class="text-sm text-gray-600 hover:text-black">
+                    Lihat Semua &gt;
+                </a>
+            </div>
+        </div>
         </div>
     </section>
 
-    <!-- Best Seller -->
+    <!-- Best Seller Section -->
     <section class="max-w-7xl mx-auto px-6 mb-10 relative">
         <div class="relative rounded-xl shadow-md overflow-hidden">
             <div class="absolute top-0 left-0 w-full h-1/4 bg-white z-0"></div>
@@ -126,34 +133,21 @@
                         Bingung milih? <br class="hidden sm:block">
                         coba cek <span class="text-yellow-500">Best Seller</span> aja!
                     </h2>
-
-                    <div class="text-center md:text-right">
-                        <span class="text-sm sm:text-lg font-bold text-black mb-2 block">Kategori</span>
-
-                        <div class="text-center md:text-right">
-                            <div class="flex flex-nowrap justify-center md:justify-end gap-2 overflow-x-auto">
-                                @foreach (['Ayam', 'Seafood', 'Nasi', 'Mie', 'Dessert', 'Cemilan', 'Minuman'] as $kat)
-                                    <span
-                                        class="px-4 py-1 bg-blue-500 text-white rounded-full text-sm whitespace-nowrap">
-                                        {{ $kat }}
-                                    </span>
-                                @endforeach
-                            </div>
-                        </div>
-
-                    </div>
                 </div>
 
                 <div class="bg-blue-600 p-6 md:p-8">
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                        <x-card.card-large-best image="{{ asset('image_menu/Ayam/ayam-kremes.jpg') }}" top="1"
-                            title="Ayam Kremes" category="Ayam" price="15.000" />
 
-                        <x-card.card-large-best image="{{ asset('image_menu/Ayam/ayam-bumbu-rendang.png') }}"
-                            top="2" title="Ayam Bumbu Rendang" category="Ayam" price="20.000" />
+                        @foreach ($recommended as $key => $product)
+                            <x-card.card-large-best 
+                                :image="asset('image_menu/' . $product->category->name . '/' . $product->image)" 
+                                :top="$key + 1"
+                                :title="$product->name" 
+                                :category="$product->category->name ?? '-'" 
+                                :price="number_format($product->price, 0, ',', '.')"
+                                :id="$product->id" />
+                        @endforeach
 
-                        <x-card.card-large-best image="{{ asset('image_menu/Minuman/Iced_matcha_latte.png') }}"
-                            top="3" title="Matcha Latte" category="Minuman" price="16.000" />
                     </div>
                 </div>
             </div>
@@ -167,54 +161,68 @@
                 <h2 class="text-white text-lg md:text-xl font-bold">Pilihan Menu</h2>
             </div>
 
+            @php
+                $menus = $randomProducts->take(8);
+                $menus->push(collect(['id' => null])); // slot ke-9 jadi tombol lihat semua
+                $chunks = $menus->chunk(3);
+            @endphp
+
             <div class="p-6 md:p-8 bg-white">
-                <div class="relative">
-                    <div class="slides grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                        <x-card.card-large-pilihan image="{{ asset('image_menu/Cemilan/kentang_goreng.png') }}"
-                            title="Kentang Goreng" category="Cemilan" price="15.000" />
+                <div class="relative overflow-hidden">
 
-                        <x-card.card-large-pilihan image="{{ asset('image_menu/Dessert/es_shanghai.png') }}"
-                            title="Es Shanghai" category="Dessert" price="10.000" />
-
-                        <x-card.card-large-pilihan image="{{ asset('image_menu/Ayam/ayam-pop.jpg') }}"
-                            title="Ayam Pop" category="Ayam" price="24.000" />
+                    <!-- Slides -->
+                    <div id="slidesTrack" class="flex transition-transform duration-500">
+                        @foreach ($chunks as $chunk)
+                            <div
+                                class="slide min-w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 overflow-hidden">
+                                @foreach ($chunk as $menu)
+                                    @if (isset($menu->id))
+                                        <!-- Normal Card -->
+                                        <x-card.card-large-pilihan 
+                                            :image="asset('image_menu/' . $menu->category->name . '/' . $menu->image)" 
+                                            :title="$menu->name"
+                                            :category="$menu->category->name ?? '-'" 
+                                            :price="number_format($menu->price, 0, ',', '.')" 
+                                            :link="route('menu.menu-detail', ['id' => $menu->id])"
+                                            :stock="$menu->stock"
+                                            :product-id="$menu->id" />
+                                    @else
+                                        <!-- Card "Lihat Semua Menu" -->
+                                        <a href="{{ route('menu.main') }}"
+                                            class="flex flex-col items-center justify-center border-2 border-blue-500 rounded-xl hover:bg-blue-50 transition duration-300 p-6 text-center">
+                                            <img src="{{ asset('images/right_arrow.png') }}"
+                                                class="w-14 h-14 mb-3 opacity-80" />
+                                            <p class="font-semibold text-blue-600 text-lg">Lihat Semua Menu</p>
+                                        </a>
+                                    @endif
+                                @endforeach
+                            </div>
+                        @endforeach
                     </div>
 
-                    <div class="slides hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                        <x-card.card-large-pilihan image="{{ asset('image_menu/Minuman/americano.jpg') }}"
-                            title="Americano" category="Minuman" price="14.000" />
+                    <!-- Buttons -->
+                    <button id="prevBtn"
+                        class="absolute left-4 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-gray-200 transition opacity-0 pointer-events-none duration-300">
+                        <img src="{{ asset('images/left_arrow.png') }}" class="w-5 h-5" />
+                    </button>
 
-                        <x-card.card-large-pilihan image="{{ asset('image_menu/Seafood/cumi-saus-padang.jpg') }}"
-                            title="Cumi Saus Padang" category="Seafood" price="22.000" />
+                    <button id="nextBtn"
+                        class="absolute right-4 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-gray-200 transition">
+                        <img src="{{ asset('images/right_arrow.png') }}" class="w-5 h-5" />
+                    </button>
 
-                        <x-card.card-large-pilihan image="{{ asset('image_menu/Dessert/pudding_coklat.jpg') }}"
-                            title="Pudding Coklat" category="Dessert" price="10.000" />
-                    </div>
-
-                    <div class="slides hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                        <x-card.card-large-pilihan image="{{ asset('image_menu/dessert/es_campur.jpg') }}"
-                            title="Es Campur" category="Dessert" price="12.000" />
-
-                        <x-card.card-large-pilihan image="{{ asset('image_menu/ayam/soto_ayam.jpg') }}"
-                            title="Soto Ayam" category="Ayam" price="16.000" />
-
-                        <div
-                            class="w-full h-60 sm:h-72 md:h-80 rounded-xl shadow-md bg-white flex flex-col items-center justify-center hover:shadow-xl transition cursor-pointer">
-                            <a href="{{ route('menu.main') }}"
-                                class="flex flex-col items-center justify-center h-full w-full">
-                                <img src="{{ asset('images/right_arrow.png') }}" alt="Next"
-                                    class="w-10 h-10 sm:w-12 sm:h-12 mb-2 sm:mb-3">
-                                <span class="text-gray-700 font-semibold text-base sm:text-lg">Lihat Semua Menu</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="flex justify-center mt-6 space-x-2 sm:space-x-3">
-                        <div class="dot w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-blue-600 cursor-pointer"></div>
-                        <div class="dot w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-gray-400 cursor-pointer"></div>
-                        <div class="dot w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-gray-400 cursor-pointer"></div>
-                    </div>
                 </div>
+
+                <!-- Dots -->
+                <div class="flex justify-center mt-5 gap-2">
+                    @foreach ($chunks as $index => $chunk)
+                        <div class="dot w-3 h-3 rounded-full cursor-pointer transition 
+                        {{ $index === 0 ? 'bg-blue-600' : 'bg-gray-400' }}"
+                            data-index="{{ $index }}">
+                        </div>
+                    @endforeach
+                </div>
+
             </div>
         </div>
     </section>
@@ -222,5 +230,10 @@
     <script src="{{ asset('js/slide_main.js') }}"></script>
     @include('layouts.footer')
 </body>
-
+<script>
+document.getElementById('scrollButton').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('makanDeals').scrollIntoView({ behavior: 'smooth' });
+});
+</script>
 </html>

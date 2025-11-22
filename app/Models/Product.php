@@ -14,6 +14,7 @@ class Product extends Model
         'stock',
         'rating',
         'reviews',
+        'discount',
         'image',
         'is_recommendation',
     ];
