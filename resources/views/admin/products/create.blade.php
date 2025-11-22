@@ -82,7 +82,7 @@
                 <input type="file" name="image" required
                     class="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-400 focus:outline-none">
                 <p class="text-xs text-gray-500 mt-1">Upload gambar produk (maks 2MB).</p>
-            </div>
+            </div>  
 
             {{-- Tombol Submit --}}
             <div class="mt-8 flex justify-end">

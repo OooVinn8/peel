@@ -1,14 +1,34 @@
 @extends('layouts.admin')
 
-@section('title', 'Category')
+@section('title', 'Kelola Kategori')
 
 @section('content')
 
-<div class="flex justify-between items-center mb-6">
-    <h2 class="text-2xl font-semibold">Categories</h2>
-    <a href="{{ route('admin.categories.create') }}" 
-       class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-        + Add Category
+{{-- Kartu Statistik Kategori --}}
+<div class="flex flex-wrap gap-6 mb-6">
+    <div class="flex-1 min-w-[250px] bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+        <h3 class="text-gray-600 font-medium text-sm mb-1">
+            Total Kategori <span class="block text-xs text-gray-400">Saat ini</span>
+        </h3>
+        <p class="text-4xl font-bold text-gray-800 mt-2">{{ $totalCategories }}</p>
+    </div>
+</div>
+
+{{-- Search dan Tambah --}}
+<div class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
+    {{-- Search --}}
+    <form method="GET" action="{{ route('admin.categories.index') }}" class="relative w-full sm:w-1/2">
+        <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari Kategori..."
+            class="w-full border border-gray-300 rounded-[100px] py-2 pl-10 pr-4 focus:ring-2 focus:ring-blue-400 focus:outline-none transition">
+        <img src="{{ asset('images/search.png') }}" alt="Search"
+            class="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 opacity-70">
+    </form>
+
+    {{-- Tombol Tambah --}}
+    <a href="{{ route('admin.categories.create') }}"
+        class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-[100px] shadow-sm transition">
+        <span class="text-lg leading-none">＋</span>
+        <span>Tambah Kategori</span>
     </a>
 </div>
 

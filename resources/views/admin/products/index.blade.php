@@ -86,16 +86,14 @@
                 <tbody class="text-sm text-gray-800">
                     @forelse($products as $index => $product)
                         <tr class="border-b last:border-b-0 hover:bg-gray-50 transition">
-                            <td class="py-3 px-4">{{ $index + 1 }}</td>
+                            <td class="py-3 px-4">{{ $loop->iteration + ($products->currentPage()-1)*$products->perPage() }}</td>
                             <td class="py-3 px-4">{{ $product->name }}</td>
                             <td class="py-3 px-4">{{ $product->category->name ?? '-' }}</td>
                             <td class="py-3 px-4">Rp{{ number_format($product->price, 0, ',', '.') }}</td>
                             <td class="py-3 px-4">{{ $product->stock ?? 0 }}</td>
                             <td class="py-3 px-4 text-center space-x-3">
-                                <a href="{{ route('admin.products.show', $product->id) }}"
-                                    class="text-blue-600 hover:underline">Detail</a>
-                                <a href="{{ route('admin.products.edit', $product->id) }}"
-                                    class="text-yellow-600 hover:underline">Edit</a>
+                                <a href="{{ route('admin.products.show', $product->id) }}" class="text-blue-600 hover:underline">Detail</a>
+                                <a href="{{ route('admin.products.edit', $product->id) }}" class="text-yellow-600 hover:underline">Edit</a>
                                 <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST"
                                     class="inline" onsubmit="return confirm('Yakin ingin menghapus produk ini?')">
                                     @csrf
@@ -113,6 +111,11 @@
                     @endforelse
                 </tbody>
             </table>
+        </div>
+
+        {{-- Pagination --}}
+        <div class="mt-4 pagination">
+            {{ $products->links() }}
         </div>
     </div>
 @endsection

@@ -14,24 +14,24 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $search = $request->input('search');
+        $query = Product::with('category')->orderBy('created_at', 'desc');
 
-        $query = Product::with('category');
-
-        if ($search) {
-            $query->where('name', 'like', "%{$search}%");
+        if ($request->has('search') && $request->search != '') {
+            $query->where('name', 'like', '%' . $request->search . '%');
         }
 
-        $products = $query->latest()->get();
+        $products = $query->paginate(20); // batasi 20 produk per halaman
+
+        $totalProducts = Product::count();
         $recommendedProducts = Product::where('is_recommendation', true)->get();
         $outOfStockProducts = Product::where('stock', 0)->get();
 
-        return view('admin.products.index', [
-            'products' => $products,
-            'totalProducts' => Product::count(),
-            'recommendedProducts' => $recommendedProducts,
-            'outOfStockProducts' => $outOfStockProducts,
-        ]);
+        return view('admin.products.index', compact(
+            'products', 
+            'totalProducts', 
+            'recommendedProducts', 
+            'outOfStockProducts'
+        ));
     }
 
     /**
