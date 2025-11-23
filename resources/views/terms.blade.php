@@ -2,6 +2,7 @@
 @include('layouts.navbar')
 @section('title', 'Syarat & Ketentuan - MakanDulu')
 @section('content')
+<link rel="icon" href="{{ asset('icon.ico') }}" type="image/x-icon">
 
 <section class="w-full bg-gray-50 text-gray-800">
 
@@ -111,6 +112,9 @@
         </section>
 
         <hr class="my-8">
+
+        <p class="text-sm text-gray-600 text-center">
+          Dengan menggunakan layanan <span class="text-blue-600 font-semibold">Makan</span><span class="text-yellow-500 font-semibold">Dulu</span>, Anda setuju mengikuti seluruh aturan yang berlaku dan menggunakan layanan dengan cara yang benar.
       </div>
 
     </div>

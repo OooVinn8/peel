@@ -37,6 +37,7 @@
     <table class="min-w-full table-auto">
         <thead class="bg-gray-100">
             <tr>
+                <th class="px-6 py-3 text-left font-semibold text-gray-600">No</th>
                 <th class="px-6 py-3 text-left font-semibold text-gray-600">Image</th>
                 <th class="px-6 py-3 text-left font-semibold text-gray-600">Name</th>
                 <th class="px-6 py-3 text-left font-semibold text-gray-600">Actions</th>
@@ -44,19 +45,21 @@
         </thead>
 
         <tbody class="divide-y">
-
             @foreach ($categories as $category)
             <tr>
+                <td class="px-6 py-4 text-gray-700 font-semibold">
+                    {{ $loop->iteration }}
+                </td>
+
                 <td class="px-6 py-4">
-                    {{-- Preview Hover --}}
                     <div class="relative group w-12 h-12">
                         <img src="{{ asset('image_category/' . $category->image) }}" 
-                             class="w-12 h-12 object-cover border rounded cursor-pointer">
+                            class="w-12 h-12 object-cover border rounded cursor-pointer">
 
                         <div class="hidden group-hover:flex absolute -right-48 top-1/2 -translate-y-1/2 
                                     w-40 h-40 bg-white shadow-xl border rounded-lg p-2 z-50">
                             <img src="{{ asset('image_category/' . $category->image) }}" 
-                                 class="w-full h-full object-cover rounded-md">
+                                class="w-full h-full object-cover rounded-md">
                         </div>
                     </div>
                 </td>
@@ -69,11 +72,11 @@
                     <div class="flex items-center gap-3">
 
                         <a href="{{ route('admin.categories.edit', $category->id) }}" 
-                           class="text-blue-600 hover:underline">Edit</a>
+                        class="text-yellow-600 hover:underline">Edit</a>
 
                         <form method="POST" 
-                              action="{{ route('admin.categories.destroy', $category->id) }}"
-                              onsubmit="return confirm('Delete this category?')">
+                            action="{{ route('admin.categories.destroy', $category->id) }}"
+                            onsubmit="return confirm('Delete this category?')">
                             @csrf
                             @method('DELETE')
                             <button class="text-red-600 hover:underline">Delete</button>
@@ -83,7 +86,6 @@
                 </td>
             </tr>
             @endforeach
-
         </tbody>
     </table>
 

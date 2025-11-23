@@ -2,7 +2,7 @@
 @include('layouts.navbar')
 
 @section('title', 'Menu - MakanDulu')
-
+<link rel="icon" href="{{ asset('icon.ico') }}" type="image/x-icon">
 @section('content')
     <div class="max-w-7xl mx-auto px-6 py-10">
         {{-- Card utama putih --}}

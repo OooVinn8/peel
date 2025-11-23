@@ -4,7 +4,15 @@
 
 @section('content')
 
-<div class="max-w-lg mx-auto bg-white shadow-md rounded-xl p-6">
+<div class="max-w-4xl mx-auto flex items-center justify-between mb-8">
+    <a href="{{ route('admin.categories.index') }}"
+        class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition">
+        <img src="{{ asset('images/back.png') }}" alt="Kembali" class="w-5 h-5 opacity-80">
+        <span>Kembali ke Daftar Kategori</span>
+    </a>
+</div>
+
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-md border border-gray-100">
 
     <h2 class="text-xl font-semibold mb-6 text-gray-800">Edit Kategori</h2>
 
@@ -13,33 +21,44 @@
         @csrf
         @method('PUT')
 
-        {{-- Nama --}}
-        <label class="block text-gray-600 mb-2">Nama Kategori</label>
-        <input type="text" name="name" value="{{ $category->name }}" required
-               class="w-full border px-3 py-2 rounded-lg mb-5">
+        <div class="grid grid-cols-1 gap-6">
 
-        {{-- Gambar Lama --}}
-        <label class="block text-gray-600 mb-2">Gambar Saat Ini</label>
-        <div class="w-28 h-28 mb-4">
-            <img src="{{ asset('image_category/' . $category->image) }}" 
-                 class="w-28 h-28 object-cover rounded-lg border">
+            {{-- Nama --}}
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Nama Kategori</label>
+                <input type="text" name="name" value="{{ $category->name }}" required
+                    class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 
+                           focus:ring-blue-400 focus:outline-none">
+            </div>
+
+            {{-- Gambar Lama --}}
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Gambar Saat Ini</label>
+                <img src="{{ asset('image_category/' . $category->image) }}" 
+                     class="w-40 h-40 object-cover rounded-lg border shadow">
+            </div>
+
+            {{-- Upload Baru --}}
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Ganti Gambar (Opsional)</label>
+
+                <input type="file" name="image" accept="image/png"
+                    class="w-full border border-gray-300 rounded-lg px-3 py-2 bg-white 
+                           focus:ring-2 focus:ring-blue-400 focus:outline-none">
+
+                <p class="text-xs text-gray-500 mt-1">*Hanya PNG</p>
+            </div>
+
         </div>
 
-        {{-- Upload Baru --}}
-        <label class="block text-gray-600 mb-2">Ganti Gambar (Opsional)</label>
-        <input type="file" name="image" accept="image/png"
-               class="w-full border px-3 py-2 rounded-lg">
-
-        <p class="text-xs text-gray-500 mt-1">*Hanya PNG</p>
-
-        <div class="flex justify-end mt-6 gap-3">
+        <div class="mt-8 flex justify-end gap-3">
             <a href="{{ route('admin.categories.index') }}"
-               class="px-4 py-2 border rounded-lg text-gray-600 hover:bg-gray-100">
+               class="px-6 py-2 rounded-lg border text-gray-700 hover:bg-gray-100 transition">
                 Batal
             </a>
 
-            <button type="submit" 
-                    class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+            <button type="submit"
+                class="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition">
                 Update
             </button>
         </div>

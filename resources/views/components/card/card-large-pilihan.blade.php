@@ -41,8 +41,9 @@
                 <input type="hidden" name="quantity" value="1">
                 <button type="submit"
                     onclick="event.stopPropagation()"
-                    class="w-full bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition cursor-pointer">
-                    Tambah ke Keranjang
+                    class="w-full bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition cursor-pointer flex items-center justify-center space-x-2">
+                    <img src="{{ asset('images/cart-menu.png') }}" class="w-5 h-5" alt="cart">
+                    <span>Tambah ke Keranjang</span>
                 </button>
             </form>
         @endif

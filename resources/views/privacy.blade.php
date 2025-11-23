@@ -2,6 +2,7 @@
 @include('layouts.navbar')
 @section('title', 'Kebijakan Privasi - MakanDulu')
 @section('content')
+<link rel="icon" href="{{ asset('icon.ico') }}" type="image/x-icon">
 
 <section class="w-full bg-gray-50 text-gray-800">
 

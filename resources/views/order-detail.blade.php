@@ -2,8 +2,21 @@
 @section('title', 'Detail Pesanan')
 
 @section('content')
-<div class="max-w-5xl mx-auto mt-6 p-6 bg-white shadow-lg rounded-2xl border border-gray-100">
 
+<div class="max-w-6xl mx-auto mt-6 px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between bg-white shadow-md rounded-xl px-6 py-4 mb-6">
+        <div class="flex items-center gap-4">
+            <img src="{{ asset('images/logo.png') }}" alt="Makandulu" class="h-12">
+        </div>
+
+        <h1 class="text-3xl font-bold text-gray-800 text-center flex-1">
+            Detail Pesanan
+        </h1>
+
+        <div class="w-35"></div>
+    </div>
+
+<div class="max-w-5xl mx-auto mt-6 p-6 bg-white shadow-lg rounded-2xl border border-gray-100">
     {{-- Tombol Kembali --}}
     <a href="{{ route('user.orders') }}"
        class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium mb-6">

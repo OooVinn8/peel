@@ -35,7 +35,7 @@
                     <a href="{{ url('/admin/products') }}"
                         class="flex items-center gap-4 px-4 py-3 rounded-lg text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition {{ request()->is('admin/products*') ? 'bg-blue-100 text-blue-600 font-semibold' : '' }}">
                         <img src="{{ asset('admin_images/menu.png') }}" class="h-6 w-6" alt="Menu">
-                        <span class="text-base font-medium">Menu</span>
+                        <span class="text-base font-medium">Produk</span>
                     </a>
 
                     <a href="{{ url('/admin/categories') }}"

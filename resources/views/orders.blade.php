@@ -2,15 +2,18 @@
 @section('title', 'Pesanan Saya')
 
 @section('content')
-<div class="max-w-6xl mx-auto mt-6 px-4 sm:px-6 lg:px-8">
 
-    {{-- Header + Back Button --}}
-    <div class="flex items-center justify-between bg-white shadow-md rounded-xl px-6 py-4 mb-6">
+    <div class="max-w-6xl mx-auto mt-6 px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between bg-white shadow-md rounded-xl px-6 py-4 mb-6">
         <div class="flex items-center gap-4">
             <img src="{{ asset('images/logo.png') }}" alt="Makandulu" class="h-12">
         </div>
-        <h1 class="text-3xl font-bold text-gray-800">Pesanan Saya</h1>
-        <div></div> {{-- Spacer untuk rata tengah --}}
+
+        <h1 class="text-3xl font-bold text-gray-800 text-center flex-1">
+            Pesanan Saya
+        </h1>
+
+        <div class="w-35"></div>
     </div>
     
     {{-- Tombol Kembali --}}
