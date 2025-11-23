@@ -79,7 +79,7 @@
                                     onsubmit="return confirm('Delete this category?')">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="text-red-600 hover:underline">Delete</button>
+                                    <button class="text-red-600 hover:underline">Hapus</button>
                                 </form>
 
                             </div>
