@@ -76,43 +76,45 @@ Route::get('/kebijakan-privasi', [FooterController::class, 'privacy'])->name('pr
 Route::get('/syarat-dan-ketentuan', [FooterController::class, 'terms'])->name('terms');
 
 // 🧑‍💼 Admin Routes (pakai middleware class langsung)
+
+// ======================
+//   ROUTE ADMIN ONLY
+// ======================
 Route::prefix('admin')
     ->middleware(['auth', IsAdmin::class])
     ->name('admin.')
     ->group(function () {
+
+        // Dashboard
+        Route::get('/', [AdminDashboardController::class, 'index'])
+            ->name('dashboard');
+
+        // Orders
         Route::get('/orders', [AdminOrderController::class, 'index'])->name('orders.index');
         Route::get('/orders/{id}', [AdminOrderController::class, 'show'])->name('orders.show');
         Route::post('/orders/{id}/status', [AdminOrderController::class, 'updateStatus'])->name('orders.updateStatus');
         Route::delete('/orders/{id}', [AdminOrderController::class, 'destroy'])->name('orders.destroy');
+        Route::put('/orders/{id}', [AdminOrderController::class, 'update'])->name('orders.update');
+
+        // Categories
+        Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+        Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+        Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+        Route::get('/categories/{id}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
+        Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('categories.update');
+        Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+
+        // Products
+        Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+        Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+        Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+        Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+        Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
+        Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
+        Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+        // Users
+        Route::get('/users', [AdminUserController::class, 'index'])->name('users.index');
+        Route::delete('/users/{id}', [AdminUserController::class, 'destroy'])->name('users.destroy');
+
     });
-
-// Admin Dashboard
-Route::get('/admin', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
-
-// Kelola Kategori
-Route::get('/admin/categories', [CategoryController::class, 'index'])->name('admin.categories.index');
-Route::get('/admin/categories/create', [CategoryController::class, 'create'])->name('admin.categories.create');
-Route::post('/admin/categories', [CategoryController::class, 'store'])->name('admin.categories.store');
-Route::get('/admin/categories/{id}/edit', [CategoryController::class, 'edit'])->name('admin.categories.edit');
-Route::put('/admin/categories/{id}', [CategoryController::class, 'update'])->name('admin.categories.update');
-Route::delete('/admin/categories/{id}', [CategoryController::class, 'destroy'])->name('admin.categories.destroy');
-
-// Kelola Produk
-Route::get('/admin/products', [ProductController::class, 'index'])->name('admin.products.index');
-Route::get('/admin/products/create', [ProductController::class, 'create'])->name('admin.products.create');
-Route::get('/admin/products/{id}', [ProductController::class, 'show'])->name('admin.products.show');
-Route::post('/admin/products', [ProductController::class, 'store'])->name('admin.products.store');
-Route::get('/admin/products/{id}/edit', [ProductController::class, 'edit'])->name('admin.products.edit');
-Route::put('/admin/products/{id}', [ProductController::class, 'update'])->name('admin.products.update');
-Route::delete('/admin/products/{id}', [ProductController::class, 'destroy'])->name('admin.products.destroy');
-
-
-// Kelola Pesanan
-Route::get('/admin/orders', [OrderController::class, 'index'])->name('admin.orders.index');
-Route::get('/admin/orders/{id}', [OrderController::class, 'show'])->name('admin.orders.show');
-Route::put('/admin/orders/{id}', [OrderController::class, 'update'])->name('admin.orders.update');
-Route::delete('/admin/orders/{id}', [OrderController::class, 'destroy'])->name('admin.orders.destroy');
-
-// Kelola User (pakai alias)
-Route::get('/admin/users', [AdminUserController::class, 'index'])->name('admin.users.index');
-Route::delete('/admin/users/{id}', [AdminUserController::class, 'destroy'])->name('admin.users.destroy');

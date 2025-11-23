@@ -62,7 +62,7 @@ class UserController extends Controller
             if ($user->role === 'admin') {
                 return redirect()->route('admin.dashboard');
             } else {
-                return redirect()->route('home'); // user biasa
+                return redirect()->route('home');
             }
         }
 
