@@ -6,40 +6,36 @@
 @section('content')
 
 
-<div class="relative overflow-hidden h-[550px] flex items-center bg-black/5">
+    <div class="relative overflow-hidden h-[550px] flex items-center bg-black/5">
 
-    <div class="relative z-20 w-full h-full flex items-center justify-between px-10">
+        <div class="relative z-20 w-full h-full flex items-center justify-between px-10">
 
-        <div class="text-black max-w-xl">
-            <h1 class="text-6xl font-extrabold mb-6 tracking-wide drop-shadow-2xl flex flex-wrap gap-2">
-                <span>Tentang</span>
-                <span class="relative">
-                    <span class="text-blue-600">Makan</span><span class="text-yellow-500">Dulu</span>
-                </span>
-            </h1>
+            <div class="text-black max-w-xl">
+                <h1 class="text-6xl font-extrabold mb-6 tracking-wide drop-shadow-2xl flex flex-wrap gap-2">
+                    <span>Tentang</span>
+                    <span class="relative">
+                        <span class="text-blue-600">Makan</span><span class="text-yellow-500">Dulu</span>
+                    </span>
+                </h1>
 
-            <p class="text-lg font-light leading-relaxed text-black">
-                Tempat di mana rasa, cerita, dan suasana bersatu dalam setiap suapan.
-                Di sinilah waktu berhenti sejenak — untuk menikmati hidup, sebelum melangkah lagi.
-            </p>
+                <p class="text-lg font-light leading-relaxed text-black">
+                    Tempat di mana rasa, cerita, dan suasana bersatu dalam setiap suapan.
+                    Di sinilah waktu berhenti sejenak — untuk menikmati hidup, sebelum melangkah lagi.
+                </p>
+            </div>
+
+            {{-- LOTTIE KANAN --}}
+            <div class="w-[45%] h-full flex justify-center">
+                <dotlottie-player src="{{ asset('images/team.json') }}" background="transparent" speed="1" loop autoplay
+                    class="w-full h-full object-contain">
+                </dotlottie-player>
+            </div>
+
         </div>
-
-        {{-- LOTTIE KANAN --}}
-        <div class="w-[45%] h-full flex justify-center">
-            <dotlottie-player 
-                src="{{ asset('images/team.json') }}"
-                background="transparent"
-                speed="1"
-                loop autoplay
-                class="w-full h-full object-contain">
-            </dotlottie-player>
-        </div>
-
     </div>
-</div>
 
-{{-- SCRIPT LOTTIE --}}
-<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.js"></script>
+    {{-- SCRIPT LOTTIE --}}
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.js"></script>
 
 
 

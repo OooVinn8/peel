@@ -1,7 +1,6 @@
 @props(['image', 'title', 'category', 'price', 'id'])
 
-<a href="{{ route('menu.menu-detail', ['id' => $id]) }}"
-   class="block hover:scale-[1.02] transition duration-300">
+<a href="{{ route('menu.menu-detail', ['id' => $id]) }}" class="block hover:scale-[1.02] transition duration-300">
 
     <div class="relative bg-gray-100 rounded-xl shadow-md flex overflow-hidden flex-1">
         <img src="{{ $image }}" alt="{{ $title }}" class="w-40 h-30 object-cover">

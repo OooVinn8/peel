@@ -13,8 +13,7 @@
 
         @include('layouts.navbar')
 
-        <div class="max-w-6xl mx-auto mt-6 p-4 sm:p-6"
-            x-data="{ tab: new URLSearchParams(window.location.search).get('tab') || 'personal' }">
+        <div class="max-w-6xl mx-auto mt-6 p-4 sm:p-6" x-data="{ tab: new URLSearchParams(window.location.search).get('tab') || 'personal' }">
 
             <!-- TAB BUTTONS -->
             <div class="flex flex-wrap justify-center md:justify-start space-x-4 border-b mb-6">
@@ -95,7 +94,8 @@
                                 </div>
 
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700">Konfirmasi Password Baru</label>
+                                    <label class="block text-sm font-medium text-gray-700">Konfirmasi Password
+                                        Baru</label>
                                     <input type="password" name="new_password_confirmation"
                                         class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500"
                                         placeholder="Ulangi password baru" required>
@@ -133,7 +133,8 @@
                         </form>
                     </div>
 
-                    <p class="mt-4 text-sm italic text-center {{ $user->profile_picture ? 'text-gray-700' : 'text-gray-500' }}">
+                    <p
+                        class="mt-4 text-sm italic text-center {{ $user->profile_picture ? 'text-gray-700' : 'text-gray-500' }}">
                         {{ $user->profile_picture
                             ? 'Mantap! Foto profil sudah keren, lanjut jelajahi MakanDulu!'
                             : 'Belum upload foto nih, ayo biar profil makin kece di MakanDulu!' }}
@@ -143,7 +144,7 @@
 
             <!-- TAB HISTORY -->
             <div x-show="tab === 'history'" class="mt-6">
-                @if($histories->count())
+                @if ($histories->count())
                     <div class="overflow-x-auto">
                         <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
                             <thead class="bg-gray-50 border-b">
@@ -157,10 +158,13 @@
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-100">
-                                @foreach($histories as $index => $history)
+                                @foreach ($histories as $index => $history)
                                     <tr class="hover:bg-gray-50 transition">
-                                        <td class="py-3 px-4 text-sm text-gray-700 font-medium">{{ $index + 1 }}</td>
-                                        <td class="py-3 px-4 text-sm text-gray-600">{{ \Carbon\Carbon::parse($history->created_at)->format('d M Y, H:i') }}</td>
+                                        <td class="py-3 px-4 text-sm text-gray-700 font-medium">{{ $index + 1 }}
+                                        </td>
+                                        <td class="py-3 px-4 text-sm text-gray-600">
+                                            {{ \Carbon\Carbon::parse($history->created_at)->format('d M Y, H:i') }}
+                                        </td>
                                         <td class="py-3 px-4 text-sm text-gray-700 font-mono">
                                             #MD{{ str_pad($history->id, 6, '0', STR_PAD_LEFT) }}
                                         </td>
@@ -169,19 +173,21 @@
                                                 $statusColors = [
                                                     'selesai' => 'bg-green-100 text-green-700',
                                                     'dibatalkan' => 'bg-red-100 text-red-700',
-                                                    'default' => 'bg-yellow-100 text-yellow-700'
+                                                    'default' => 'bg-yellow-100 text-yellow-700',
                                                 ];
-                                                $colorClass = $statusColors[$history->status] ?? $statusColors['default'];
+                                                $colorClass =
+                                                    $statusColors[$history->status] ?? $statusColors['default'];
                                             @endphp
-                                            <span class="px-3 py-1 text-xs font-semibold rounded-full {{ $colorClass }}">
+                                            <span
+                                                class="px-3 py-1 text-xs font-semibold rounded-full {{ $colorClass }}">
                                                 {{ ucfirst($history->status) }}
                                             </span>
                                         </td>
                                         <td class="py-3 px-4 text-sm text-gray-700">{{ $history->notes ?? '-' }}</td>
                                         <td class="py-3 px-4 text-center">
-                                            <a href="{{ route('history.show', $history->id) }}" 
-                                            class="inline-block px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition">
-                                            Lihat Detail
+                                            <a href="{{ route('history.show', $history->id) }}"
+                                                class="inline-block px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition">
+                                                Lihat Detail
                                             </a>
                                         </td>
                                     </tr>

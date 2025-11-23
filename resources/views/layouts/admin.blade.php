@@ -52,7 +52,7 @@
                 </nav>
             </div>
 
-            <div class="p-4 border-t border-gray-200 text-center" >
+            <div class="p-4 border-t border-gray-200 text-center">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit" onclick="return confirm('Apakah kamu yakin ingin logout?')"

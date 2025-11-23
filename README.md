@@ -104,4 +104,29 @@ order_id, user_id, status, notes
 ---
 ## Setup Database
 
-1. Copy Link P
+1. Copy Link repository
+2. git clone https://github.com/OooVinn8/peel.git
+3. cd makandulu
+4. composer install
+5. npm install
+6. npm run build
+7. cp .env.example .env (Ubah DB nya jadi MY_SQL)
+8. php artisan key:generate
+9. php artisan migrate --seed
+10. php artisan serve
+11. Akses website di: http://localhost:8000
+12. Akses code dengan "code ."
+
+## Teknologi Yang Digunakan
+- Teknologi & Library
+- Laravel 10
+- Tailwind CSS
+- Alpine.js
+- Lottie Player
+- PHP
+- MySQL
+- Chat GPT
+
+## PENUTUP
+Dengan terselesaikannya project ini, kami berharap seluruh fitur dan penjelasan yang disampaikan dapat dipahami dengan baik serta memenuhi kriteria penilaian yang diberikan. Dokumentasi ini dibuat untuk membantu menjelaskan alur kerja, penggunaan, dan tujuan dari project secara jelas dan terstruktur.
+Terima kasih atas perhatian dan kesempatan yang diberikan. Semoga hasil kerja ini dapat dinilai dengan baik dan bermanfaat dalam proses pembelajaran kami.

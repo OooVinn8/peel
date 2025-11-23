@@ -48,8 +48,7 @@
 
                         <div>
                             <label class="block text-sm text-gray-600 mb-1">Nama Lengkap</label>
-                            <input type="text" name="name"
-                                value="{{ old('name', Auth::user()->username ?? '') }}"
+                            <input type="text" name="name" value="{{ old('name', Auth::user()->username ?? '') }}"
                                 readonly
                                 class="w-full border border-gray-300 rounded-lg px-4 py-2 bg-gray-100 focus:ring-yellow-400 focus:border-yellow-400">
                             @error('name')
@@ -68,8 +67,7 @@
 
                         <div>
                             <label class="block text-sm text-gray-600 mb-1">Nomor Telepon</label>
-                            <input type="text" name="phone" 
-                                value="{{ old('phone', Auth::user()->phone ?? '') }}" 
+                            <input type="text" name="phone" value="{{ old('phone', Auth::user()->phone ?? '') }}"
                                 required
                                 class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-yellow-400 focus:border-yellow-400">
                             @error('phone')
@@ -82,12 +80,17 @@
                             <select name="payment_method" required
                                 class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-yellow-400 focus:border-yellow-400">
                                 <option value="">Pilih metode</option>
-                                <option value="cod" {{ old('payment_method') == 'cod' ? 'selected' : '' }}>Bayar di Tempat (COD)</option>
-                                <option value="transfer" {{ old('payment_method') == 'transfer' ? 'selected' : '' }}>Transfer Bank</option>
-                                <option value="dana" {{ old('payment_method') == 'dana' ? 'selected' : '' }}>DANA</option>
+                                <option value="cod" {{ old('payment_method') == 'cod' ? 'selected' : '' }}>Bayar di
+                                    Tempat (COD)</option>
+                                <option value="transfer" {{ old('payment_method') == 'transfer' ? 'selected' : '' }}>
+                                    Transfer Bank</option>
+                                <option value="dana" {{ old('payment_method') == 'dana' ? 'selected' : '' }}>DANA
+                                </option>
                                 <option value="ovo" {{ old('payment_method') == 'ovo' ? 'selected' : '' }}>OVO</option>
-                                <option value="gopay" {{ old('payment_method') == 'gopay' ? 'selected' : '' }}>GoPay</option>
-                                <option value="qris" {{ old('payment_method') == 'qris' ? 'selected' : '' }}>QRIS</option>
+                                <option value="gopay" {{ old('payment_method') == 'gopay' ? 'selected' : '' }}>GoPay
+                                </option>
+                                <option value="qris" {{ old('payment_method') == 'qris' ? 'selected' : '' }}>QRIS
+                                </option>
                             </select>
                             @error('payment_method')
                                 <span class="text-red-500 text-sm">{{ $message }}</span>

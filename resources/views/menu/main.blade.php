@@ -66,14 +66,8 @@
             {{-- Daftar Menu --}}
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 @forelse($menus as $menu)
-                    <x-card.card-large-pilihan
-                        :image="asset('image_menu/' . $menu->category->name . '/' . $menu->image)"
-                        :title="$menu->name"
-                        :category="$menu->category->name"
-                        :price="'Rp' . number_format($menu->price,0,',','.')"
-                        :stock="$menu->stock"
-                        :link="route('menu.menu-detail', $menu->id)"
-                        :product-id="$menu->id" />
+                    <x-card.card-large-pilihan :image="asset('image_menu/' . $menu->category->name . '/' . $menu->image)" :title="$menu->name" :category="$menu->category->name" :price="'Rp' . number_format($menu->price, 0, ',', '.')"
+                        :stock="$menu->stock" :link="route('menu.menu-detail', $menu->id)" :product-id="$menu->id" />
                 @empty
                     <div class="col-span-full text-center text-gray-500">
                         Menu tidak ditemukan

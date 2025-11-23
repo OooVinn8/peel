@@ -26,7 +26,7 @@
         </div>
 
         <a href="{{ route('home') }}"
-        class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium mb-6">
+            class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium mb-6">
             <img src="{{ asset('images/back.png') }}" alt="Kembali" class="w-5 h-5 opacity-80">
             Kembali ke Beranda
         </a>
@@ -74,19 +74,18 @@
 
                         {{-- Kuantitas --}}
                         <div class="text-center">
-                            <div class="inline-flex items-center quantity-form" 
-                                data-id="{{ $item->id }}" 
+                            <div class="inline-flex items-center quantity-form" data-id="{{ $item->id }}"
                                 data-stock="{{ $item->product->stock }}">
-                                
+
                                 <button type="button"
-                                        class="px-2 border rounded-l decrease-btn disabled:opacity-50 disabled:cursor-not-allowed"
-                                        @if($item->quantity <= 1) disabled @endif>−</button>
+                                    class="px-2 border rounded-l decrease-btn disabled:opacity-50 disabled:cursor-not-allowed"
+                                    @if ($item->quantity <= 1) disabled @endif>−</button>
 
                                 <span class="px-3 border-t border-b quantity">{{ $item->quantity }}</span>
 
                                 <button type="button"
-                                        class="px-2 border rounded-r increase-btn disabled:opacity-50 disabled:cursor-not-allowed"
-                                        @if($item->quantity >= $item->product->stock) disabled @endif>+</button>
+                                    class="px-2 border rounded-r increase-btn disabled:opacity-50 disabled:cursor-not-allowed"
+                                    @if ($item->quantity >= $item->product->stock) disabled @endif>+</button>
                             </div>
                         </div>
 
@@ -113,7 +112,8 @@
                 {{-- Footer Subtotal --}}
                 <div class="p-4 bg-gray-50 flex justify-between items-center">
                     <div class="text-sm text-gray-600">
-                        Keranjangmu siap, perutmu menanti! Setiap pilihanmu bakal bikin momen makan jadi lebih seru bareng Makandulu.
+                        Keranjangmu siap, perutmu menanti! Setiap pilihanmu bakal bikin momen makan jadi lebih seru bareng
+                        Makandulu.
                     </div>
                     <div class="text-right">
                         <p class="text-gray-700">Subtotal:

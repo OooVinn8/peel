@@ -8,8 +8,7 @@
     'productId' => null,
 ])
 
-<div 
-    onclick="if({{ $stock }} > 0) window.location='{{ $link }}'" 
+<div onclick="if({{ $stock }} > 0) window.location='{{ $link }}'"
     class="relative bg-gray-100 rounded-xl shadow overflow-hidden hover:scale-105 transition-transform duration-500 cursor-pointer
            {{ $stock <= 0 ? 'opacity-50 cursor-not-allowed' : '' }}">
 
@@ -34,13 +33,12 @@
             </div>
         </div>
 
-        @if($stock > 0)
+        @if ($stock > 0)
             <form method="POST" action="{{ route('cart.store') }}" class="mt-2">
                 @csrf
                 <input type="hidden" name="product_id" value="{{ $productId }}">
                 <input type="hidden" name="quantity" value="1">
-                <button type="submit"
-                    onclick="event.stopPropagation()"
+                <button type="submit" onclick="event.stopPropagation()"
                     class="w-full bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition cursor-pointer flex items-center justify-center space-x-2">
                     <img src="{{ asset('images/cart-menu.png') }}" class="w-5 h-5" alt="cart">
                     <span>Tambah ke Keranjang</span>

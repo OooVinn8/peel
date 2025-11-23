@@ -23,8 +23,8 @@
                     Nikmati kemudahan memesan menu cafe <br class="hidden sm:block"> secara online
                 </p>
                 <a href="#makanDeals" id="scrollButton"
-                class="inline-block px-6 py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition">
-                Makan yuk!
+                    class="inline-block px-6 py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition">
+                    Makan yuk!
                 </a>
             </div>
 
@@ -139,13 +139,8 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
                         @foreach ($recommended as $key => $product)
-                            <x-card.card-large-best 
-                                :image="asset('image_menu/' . $product->category->name . '/' . $product->image)" 
-                                :top="$key + 1"
-                                :title="$product->name" 
-                                :category="$product->category->name ?? '-'" 
-                                :price="number_format($product->price, 0, ',', '.')"
-                                :id="$product->id" />
+                            <x-card.card-large-best :image="asset('image_menu/' . $product->category->name . '/' . $product->image)" :top="$key + 1" :title="$product->name"
+                                :category="$product->category->name ?? '-'" :price="number_format($product->price, 0, ',', '.')" :id="$product->id" />
                         @endforeach
 
                     </div>
@@ -178,13 +173,8 @@
                                 @foreach ($chunk as $menu)
                                     @if (isset($menu->id))
                                         <!-- Normal Card -->
-                                        <x-card.card-large-pilihan 
-                                            :image="asset('image_menu/' . $menu->category->name . '/' . $menu->image)" 
-                                            :title="$menu->name"
-                                            :category="$menu->category->name ?? '-'" 
-                                            :price="number_format($menu->price, 0, ',', '.')" 
-                                            :link="route('menu.menu-detail', ['id' => $menu->id])"
-                                            :stock="$menu->stock"
+                                        <x-card.card-large-pilihan :image="asset('image_menu/' . $menu->category->name . '/' . $menu->image)" :title="$menu->name"
+                                            :category="$menu->category->name ?? '-'" :price="number_format($menu->price, 0, ',', '.')" :link="route('menu.menu-detail', ['id' => $menu->id])" :stock="$menu->stock"
                                             :product-id="$menu->id" />
                                     @else
                                         <!-- Card "Lihat Semua Menu" -->
@@ -231,9 +221,12 @@
     @include('layouts.footer')
 </body>
 <script>
-document.getElementById('scrollButton').addEventListener('click', function(e) {
-    e.preventDefault();
-    document.getElementById('makanDeals').scrollIntoView({ behavior: 'smooth' });
-});
+    document.getElementById('scrollButton').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('makanDeals').scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
 </script>
+
 </html>

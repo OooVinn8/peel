@@ -15,7 +15,8 @@
 
     {{-- Form Edit Produk --}}
     <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-md border border-gray-100">
-        <form action="{{ route('admin.products.update', $product->id) }}" method="POST" enctype="multipart/form-data" id="product-form">
+        <form action="{{ route('admin.products.update', $product->id) }}" method="POST" enctype="multipart/form-data"
+            id="product-form">
             @csrf
             @method('PUT')
 
@@ -104,7 +105,7 @@
 
                     <input type="file" name="image"
                         class="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-400 focus:outline-none">
-                </div>  
+                </div>
 
                 <p class="text-xs text-gray-500 mt-1">Upload gambar baru jika ingin mengganti.</p>
             </div>

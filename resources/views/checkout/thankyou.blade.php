@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div
-        class="flex flex-col items-center justify-center min-h-screen bg-white p-6">
+    <div class="flex flex-col items-center justify-center min-h-screen bg-white p-6">
 
         <!-- Lottie Animation -->
         <div class="mb-8">

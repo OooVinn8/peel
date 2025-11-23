@@ -56,7 +56,7 @@ Route::middleware(['auth'])->group(function () {
     // Pesanan User
     Route::get('/orders', [UserController::class, 'myOrders'])->name('user.orders');
     Route::get('/orders/{id}', [UserController::class, 'showOrder'])->name('user.orders.show');
-    
+
 
     //Order
     Route::post('/orders/{id}/update-status', [OrderController::class, 'updateStatus'])->name('orders.updateStatus');
@@ -65,7 +65,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
     Route::post('/checkout/process', [CheckoutController::class, 'process'])->name('checkout.process');
     Route::get('/checkout/thankyou/{order}', [CheckoutController::class, 'thankyou'])->name('checkout.thankyou');
-
 });
 
 // Menu, Tentang, & Footer
