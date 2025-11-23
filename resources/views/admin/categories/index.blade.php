@@ -38,9 +38,9 @@
             <thead class="bg-gray-100">
                 <tr>
                     <th class="px-6 py-3 text-left font-semibold text-gray-600">No</th>
-                    <th class="px-6 py-3 text-left font-semibold text-gray-600">Image</th>
-                    <th class="px-6 py-3 text-left font-semibold text-gray-600">Name</th>
-                    <th class="px-6 py-3 text-left font-semibold text-gray-600">Actions</th>
+                    <th class="px-6 py-3 text-left font-semibold text-gray-600">Gambar</th>
+                    <th class="px-6 py-3 text-left font-semibold text-gray-600">Nama</th>
+                    <th class="px-6 py-3 text-left font-semibold text-gray-600">Aksi</th>
                 </tr>
             </thead>
 
