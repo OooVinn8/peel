@@ -112,7 +112,7 @@ order_id, user_id, status, notes
 
 1. Copy Link repository
 2. git clone https://github.com/OooVinn8/peel.git
-3. cd makandulu
+3. cd peel
 4. composer install
 5. npm install
 6. npm run build
